@@ -1,6 +1,6 @@
 # Actividad: investigación en marketing con IA, de la pregunta a la publicación
 
-**Máster Universitario en Dirección de Marketing Digital y Social**
+**Máster Universitario en Dirección de Marketing Digital y Social**\
 Facultad de Ciencias Sociales y de la Comunicación · Universidad de Cádiz
 
 **Sesión del 5 de noviembre de 2026 · Duración: 4 horas · Grupos de 4 personas**
@@ -26,7 +26,7 @@ Usaréis la IA como **ayudante declarado y verificable, nunca como autora**.
 | Color | Usos |
 |---|---|
 | 🟢 **Verde** | Lluvia de ideas, revisar estilo y ortografía, dar formato, generar el código de la web |
-| 🟠 **Ámbar** | Analizar datos, resumir artículos, sugerir por dónde buscar. **Todo se verifica** |
+| 🟠 **Ámbar** | Analizar datos, generar fórmulas, resumir artículos, sugerir por dónde buscar. **Todo se verifica** |
 | 🔴 **Rojo** | Inventar o completar datos, citar fuentes no comprobadas, redactar los resultados y la discusión |
 
 ### El diario de prompts
@@ -43,7 +43,8 @@ Cada uso importante de la IA se anota en la pestaña **Diario de prompts** de la
 |---|---|
 | Una referencia | El DOI lleva al artículo en la web de la revista, y está en Zotero |
 | Un resumen de un artículo | Se contrasta con el resumen original del artículo |
-| Una cifra o un cálculo | Se repite con una fórmula en Google Sheets |
+| Una cifra o un cálculo | Se calcula con una fórmula en Google Sheets |
+| Una fórmula | Se compara con el resumen de Forms y con una cuenta a mano |
 | Un comentario de la Gema | El grupo decide si lo aplica y anota el motivo |
 | El código de la web | Se revisa la vista previa, y el commit muestra qué ha cambiado |
 
@@ -60,7 +61,7 @@ Cada uso importante de la IA se anota en la pestaña **Diario de prompts** de la
 
 | Rol | Lidera | Necesita instalar o crear (bloque 0) |
 |---|---|---|
-| **Coordinación y datos** | Pregunta, hoja de codificación, análisis, verificación y presentación | Carpeta del grupo en Drive y diario de prompts |
+| **Coordinación y datos** | Pregunta, formulario de codificación, análisis, verificación y presentación | Carpeta del grupo en Drive y diario de prompts |
 | **Literatura** | Biblioteca de Zotero, marco teórico y referencias | Cuenta de Zotero, Zotero de escritorio, Connector, biblioteca de grupo |
 | **Redacción** | Estructura del artículo, coherencia y revisión con la Gema | Cuenta de Zotero, Zotero de escritorio y Connector |
 | **Difusión** | Repositorio de GitHub y web con Canvas | Cuenta de GitHub y repositorio |
@@ -75,9 +76,9 @@ Todas las personas crean una cuenta en zotero.org y codifican datos en el bloque
 | 0:15–0:45 | 0. Cuentas, instalaciones y espacio de trabajo (por roles, en paralelo) | Drive, Zotero, GitHub y diario listos |
 | 0:45–1:05 | 1. Pregunta de investigación | Pregunta, dos hipótesis y Gema revisora |
 | 1:05–1:30 | 2. Literatura | Al menos 6 referencias comprobadas |
-| 1:30–2:05 | 3. Recogida de datos | 32 publicaciones codificadas y fiabilidad |
+| 1:30–2:05 | 3. Recogida de datos con Google Forms | 32 publicaciones codificadas y fiabilidad |
 | 2:05–2:15 | *Descanso* | |
-| 2:15–2:45 | 4. Análisis | Cifras verificadas y `figura1.png` |
+| 2:15–2:45 | 4. Análisis con fórmulas generadas con Gemini | Cifras comprobadas y `figura1.png` |
 | 2:45–3:40 | 5, 6 y 7. Producción en paralelo | Artículo, presentación y web publicada |
 | 3:40–4:00 | Cierre | Presentaciones de 3 minutos y enlace entregado |
 
@@ -224,89 +225,151 @@ Desde este momento, **cada prompt importante va al diario**. Es la base de la de
 6. **Nota de lectura** (botón derecho → Añadir nota), tres líneas: qué estudia, con qué método, qué hallazgo os sirve. Podéis pedir a Gemini que resuma el PDF 🟠, pero contrastadlo con el resumen original.
 7. **Anotad en el diario** el prompt del paso 2 y cualquier referencia inventada que os haya dado Gemini.
 
+Mientras tanto, **Coordinación prepara el formulario de codificación** (ver bloque 3) y después se une a la búsqueda.
+
 **Comprobación**
 - ☐ Al menos 6 referencias comprobadas, cada una con su nota.
 - ☐ Entradas del bloque en el diario de prompts.
 
 ---
 
-## Bloque 3. Recogida de datos en Google Sheets (1:30–2:05)
+## Bloque 3. Recogida de datos con Google Forms (1:30–2:05)
 
-**Resultado:** 32 publicaciones codificadas con las mismas reglas y una prueba de fiabilidad.
+**Resultado:** 32 publicaciones registradas con un formulario de Google cuyas respuestas llegan a la hoja «Datos», y una prueba de fiabilidad.
 
-1. **Cread la pestaña Codificación** en «Datos» con estas columnas en la fila 1:
+¿Por qué un formulario? Cada publicación se registra respondiendo siempre a las mismas preguntas y con las mismas opciones cerradas: nadie escribe «reel», «Reels» y «vídeo» para lo mismo. Además se puede rellenar desde el móvil mientras se mira Instagram.
 
-   | Col. | Variable | Cómo se registra |
-   |---|---|---|
-   | A | ID | P-01, P-02… |
-   | B | Marca | Desplegable con las 4 marcas |
-   | C | Seguidores | Número de la cuenta el día de la recogida |
-   | D | Fecha de publicación | Fecha |
-   | E | Formato | Desplegable: Imagen · Carrusel · Reel |
-   | F | Tema principal | Desplegable: Producto · Marca y valores · Promoción · Colaboración o influencer · Contenido de usuarios |
-   | G | Aparecen personas | Desplegable: Sí · No |
-   | H | Llamada a la acción | Desplegable: Sí · No |
-   | I | Me gusta | Número; vacío si la marca los oculta |
-   | J | Comentarios | Número |
-   | K | Interacción | `=SI(I2="";"";I2+J2)` |
-   | L | Tasa de interacción (%) | `=SI(K2="";"";K2/C2*100)` |
-   | M | Codificador/a | Iniciales |
+### Preparación del formulario (Coordinación, durante el bloque 2)
 
-2. **Cread los desplegables.** Seleccionad la columna (p. ej. `E2:E100`) → Datos → Validación de datos → Añadir regla → Desplegable → escribid cada opción → Hecho. Repetid en B, F, G y H.
-3. **Copiad las fórmulas** de K2 y L2 arrastrando hasta la fila 33.
-4. **Acordad el libro de códigos (5 min).** En «Artículo», sección Metodología, definid cada categoría. Por ejemplo:
+Las marcas ya están elegidas en el bloque 1, así que Coordinación puede montar el formulario mientras el resto busca literatura (unos 10 minutos).
+
+1. **Cread el formulario.** En la carpeta del grupo: Nuevo → Más → **Formularios de Google** → título `Codificación – Grupo [n]`.
+2. **Añadid una pregunta por variable**, en este orden:
+
+   | Pregunta | Tipo | Opciones o validación | Obligatoria |
+   |---|---|---|---|
+   | ID de la publicación | Respuesta corta | P-01, P-02… | Sí |
+   | Marca | Desplegable | Las 4 marcas | Sí |
+   | Seguidores de la cuenta | Respuesta corta | Validación: número | Sí |
+   | Fecha de publicación | Fecha | — | Sí |
+   | Formato | Opción múltiple | Imagen · Carrusel · Reel | Sí |
+   | Tema principal | Opción múltiple | Producto · Marca y valores · Promoción · Colaboración o influencer · Contenido de usuarios | Sí |
+   | Aparecen personas | Opción múltiple | Sí · No | Sí |
+   | Llamada a la acción | Opción múltiple | Sí · No | Sí |
+   | Me gusta | Respuesta corta | Validación: número. Se deja vacía si la marca los oculta | **No** |
+   | Comentarios | Respuesta corta | Validación: número | Sí |
+   | Codificador/a | Respuesta corta | Iniciales | Sí |
+
+   Para la validación de número: en la pregunta, menú ⋮ (abajo a la derecha) → **Validación de respuesta** → Número.
+3. **Privacidad.** Pestaña Configuración → Respuestas → **Recoger direcciones de correo: No recoger**.
+4. **Vinculad el formulario con la hoja.** Pestaña **Respuestas** → **Vincular con Hojas de cálculo** → Seleccionar una hoja de cálculo existente → «Datos». En «Datos» aparece una pestaña nueva, «Respuestas de formulario 1»: renombradla como **Respuestas**. En esta pestaña no se escribe, ni se ordena ni se borra nada a mano: la rellena el formulario.
+5. **Compartid el enlace.** Botón **Enviar** → icono del enlace → Acortar URL → Copiar. Pegadlo al principio de «Artículo» y en el chat del grupo.
+6. **Haced una prueba.** Enviad una respuesta de prueba y comprobad que aparece en la pestaña Respuestas. Después borradla en los dos sitios: en el formulario (Respuestas → Individual → icono de la papelera) y en la hoja (botón derecho sobre la fila → Eliminar fila).
+
+### Durante el bloque
+
+1. **Acordad el libro de códigos (5 min).** En «Artículo», sección Metodología, escribid una definición de cada categoría para que todos clasifiquen igual. Por ejemplo:
    - *Aparecen personas:* se ve al menos una cara o un cuerpo; unas manos sujetando el producto no cuentan.
    - *Llamada a la acción:* el texto invita explícitamente a comprar, comentar, visitar el enlace, guardar o participar.
    - *Tema principal:* si hay varios, el que ocupa más espacio en la imagen o el texto.
-5. **Codificad (20 min).** Cada persona, una marca: sus **8 publicaciones más recientes con al menos 7 días de antigüedad**, saltando las fijadas. Anotad la fecha de recogida en «Artículo».
-6. **Comprobad la fiabilidad (10 min).**
-   - Dos personas codifican por separado las mismas 5 publicaciones de una marca que no es la suya, en una pestaña **Fiabilidad**.
-   - Para cada variable: acuerdo = coincidencias ÷ 5 × 100.
-   - Si una variable no llega al **80 %**, revisad su definición y recodificad esa columna.
+2. **Codificad (20 min).** Cada persona, una marca: sus **8 publicaciones más recientes con al menos 7 días de antigüedad**, saltando las fijadas. **Un envío del formulario por publicación** (al enviar, pulsad «Enviar otra respuesta»). Funciona bien mirar Instagram en el móvil y rellenar el formulario en el ordenador. Anotad en «Artículo» la fecha de recogida.
+3. **Comprobad que llega todo.** Coordinación revisa la pestaña Respuestas: deben aparecer 32 filas, sin IDs repetidos.
+4. **Comprobad la fiabilidad (10 min).** Sirve para saber si el libro de códigos funciona, es decir, si dos personas clasifican igual la misma publicación.
+   - Elegid 5 publicaciones de una marca ya codificadas. Otra persona las vuelve a codificar **sin mirar** las respuestas originales, en una pestaña nueva **Fiabilidad** (no en el formulario, para no duplicar datos).
+   - Poned una al lado de la otra las dos codificaciones de cada variable (Formato, Tema, Personas, Llamada a la acción).
+   - Para cada variable: acuerdo = coincidencias ÷ 5 × 100. Ejemplo: si coincidís en 4 de las 5, el acuerdo es del 80 %.
+   - Si una variable no llega al **80 %**, su definición es ambigua: aclaradla en el libro de códigos y revisad esa variable en las publicaciones dudosas.
 
 **Comprobación**
-- ☐ 32 filas completas en Codificación, sin categorías escritas a mano.
+- ☐ Formulario vinculado a «Datos», sin recoger correos.
+- ☐ 32 respuestas en la pestaña Respuestas.
 - ☐ Libro de códigos escrito en «Artículo».
 - ☐ Pestaña Fiabilidad con el porcentaje de acuerdo de cada variable.
 
 ---
 
-## Bloque 4. Análisis con Gemini y verificación (2:15–2:45)
+## Bloque 4. Análisis: de los gráficos de Forms a vuestros propios cálculos con Gemini (2:15–2:45)
 
-**Resultado:** resultados que responden a las hipótesis, comprobados con fórmulas, y la figura `figura1.png`.
+**Resultado:** columnas calculadas y pestaña Análisis con fórmulas generadas con Gemini y comprobadas, y la figura `figura1.png`.
 
-1. **Abrid Gemini en la hoja** (icono ✦ en la pestaña Codificación). Si no aparece: Archivo → Descargar → CSV y subidlo a gemini.google.com con el botón +.
-2. **Dadle el contexto** 🟠:
+### 1. Lo que os da Forms, y lo que no (3 min)
 
-   > Esta hoja contiene [n] publicaciones de Instagram de 4 marcas de [sector], codificadas para un análisis de contenido. La columna B es la marca, E el formato, F el tema, G si aparecen personas, H si hay llamada a la acción, K la interacción (me gusta + comentarios) y L la tasa de interacción en %. Las celdas vacías son datos no disponibles, no ceros. En cada respuesta, indica en cuántas publicaciones te basas.
+Abrid el formulario → **Respuestas** → **Resumen**. Forms dibuja **un gráfico por pregunta**: cuántas publicaciones hay de cada formato, de cada marca, con personas o sin ellas…
 
-3. **Preguntad en este orden**, de lo descriptivo a lo interpretativo:
-   1. ¿Cuántas publicaciones hay de cada formato y de cada marca?
-   2. Calcula la tasa de interacción media y la mediana según [la variable de vuestra H1].
-   3. ¿Se mantiene esa diferencia dentro de cada marca, o la provoca una sola marca?
-   4. ¿Qué prueba estadística sería adecuada para comparar estos grupos con esta muestra? Explica por qué y qué limitaciones tendría.
+Pero cada gráfico mira **una sola pregunta por separado**: no relaciona unas respuestas con otras. Forms no puede deciros:
+- qué formato obtiene **más interacción** (eso cruza Formato con Me gusta y Comentarios),
+- la **tasa de interacción**, la **media** o la **mediana**,
+- si la diferencia se mantiene **dentro de cada marca**.
 
-   La pregunta 3 es la clave: si la marca con más seguidores publica casi todos los reels, la diferencia puede deberse a la marca y no al formato.
+Es decir, no puede responder a vuestras hipótesis. Además, sus gráficos son en color y DYNA no los admite. Por eso los datos están vinculados a una hoja de cálculo: allí haréis **vuestros propios cálculos**.
 
-4. **Verificad cada cifra con fórmulas** en una pestaña **Análisis**. Ejemplos con el formato como variable:
+👉 **Anotad los recuentos de Formato y de Marca** que muestra el resumen: os servirán para comprobar vuestras fórmulas.
 
-   | Qué se comprueba | Fórmula |
-   |---|---|
-   | Número de reels | `=CONTAR.SI(Codificación!E:E;"Reel")` |
-   | Tasa media de los reels | `=PROMEDIO.SI(Codificación!E:E;"Reel";Codificación!L:L)` |
-   | Mediana de los reels | `=MEDIANA(FILTER(Codificación!L2:L;Codificación!E2:E="Reel"))` |
-   | Tasa media de los reels de una marca | `=PROMEDIO.SI.CONJUNTO(Codificación!L:L;Codificación!E:E;"Reel";Codificación!B:B;"[marca]")` |
+### 2. Pedid a Gemini fórmulas, no resultados 🟠
 
-   > **Si Gemini y la fórmula no coinciden, manda la fórmula.** Anotad la discrepancia en el diario.
+Si Gemini os da directamente un número, no sabéis de dónde sale. Si os da una **fórmula**, podéis leerla, comprobarla y dejarla en la hoja: se recalcula sola si cambian los datos, y cualquiera puede repetir vuestro análisis.
 
-5. **Cruzad marca y formato con una tabla dinámica.** Insertar → Tabla dinámica → Hoja nueva. Filas: Marca; Columnas: Formato; Valores: Tasa de interacción por AVERAGE y otra vez por COUNTA (para saber cuántas publicaciones hay detrás de cada media).
-6. **Haced la figura.** Insertar → Gráfico → Columnas. Barras en **gris o negro** (DYNA no admite color). Título con el hallazgo y eje con unidad, p. ej. «Tasa de interacción media por formato (%)». Menú ⋮ → Descargar → Imagen PNG → `figura1.png`.
+Abrid Gemini en el panel de la hoja (icono ✦, arriba a la derecha) o en gemini.google.com y empezad dándole el contexto:
+
+> Trabajo en Google Sheets configurado en español (nombres de funciones en español y punto y coma como separador). La pestaña «Respuestas» se rellena con un formulario de Google y tiene estas columnas: A marca temporal, B ID de la publicación, C marca, D seguidores, E fecha de publicación, F formato (Imagen, Carrusel o Reel), G tema principal, H aparecen personas (Sí/No), I llamada a la acción (Sí/No), J me gusta (puede estar vacía si la marca los oculta), K comentarios, L codificador/a. Las celdas vacías son datos no disponibles, no ceros. Cuando te pida un cálculo, dame la fórmula, dime en qué celda pegarla y explícame qué hace cada parte. No me des el resultado numérico: lo calcularé yo con la fórmula.
+
+### 3. Columnas calculadas en la pestaña Respuestas
+
+El formulario añade una fila nueva con cada respuesta, y una fórmula escrita fila a fila no se copia sola a las filas nuevas. Hay que pedir una fórmula que se aplique a toda la columna:
+
+> Necesito dos columnas calculadas en la pestaña «Respuestas» que se rellenen solas cuando llegue una respuesta nueva del formulario: en M, «Interacción» = me gusta + comentarios (vacía si no hay me gusta); en N, «Tasa de interacción (%)» = interacción ÷ seguidores × 100. Quiero una única fórmula por columna, en la fila 1, que incluya el encabezado.
+
+Pegad las fórmulas en M1 y N1. **Comprobadlas:** elegid dos filas y haced la cuenta con la calculadora del móvil.
+
+### 4. Pestaña Análisis: un cálculo por prompt
+
+Cread una pestaña **Análisis**. Pedid a Gemini una fórmula para cada cálculo, de lo descriptivo a lo interpretativo, con este patrón:
+
+> En la pestaña «Análisis», escríbeme una fórmula que calcule [lo que necesitáis] a partir de la pestaña «Respuestas».
+
+1. Número de publicaciones de cada formato y de cada marca.
+2. Tasa de interacción **media** y **mediana** según la variable de vuestra H1 (por ejemplo, el formato).
+3. La tasa media **por marca y formato**: ¿se mantiene la diferencia dentro de cada marca, o la provoca una sola marca?
+4. Y una pregunta de interpretación, sin fórmula: «¿Qué prueba estadística sería adecuada para comparar estos grupos con esta muestra? Explica por qué y qué limitaciones tendría».
+
+El cálculo 3 es la clave: si la marca con más seguidores publica casi todos los reels, la diferencia puede deberse a la marca y no al formato.
+
+### 5. Comprobad cada fórmula antes de fiaros de ella
+
+| Qué comprobar | Cómo |
+|---|---|
+| Los recuentos | Deben coincidir con el resumen de Forms que anotasteis |
+| Las sumas, tasas y medias | Repetid la cuenta a mano con 2 o 3 filas |
+| Que la fórmula mira las columnas correctas | Pinchad en la celda: Sheets colorea los rangos que usa |
+| Un error (`#N/A`, `#¡VALOR!`, `#ERROR!`) | Pegad en Gemini la fórmula y el mensaje, y pedid que os explique la causa antes de cambiar nada |
+
+> Si Gemini os da una cifra que no coincide con la de vuestra fórmula comprobada, **manda la fórmula**. Anotad en el diario cada prompt, la fórmula obtenida y cómo la comprobasteis.
+
+<details>
+<summary>Si Gemini se atasca: fórmulas de referencia (con el formato como variable)</summary>
+
+| Cálculo | Fórmula |
+|---|---|
+| Interacción (M1) | `={"Interacción";ARRAYFORMULA(SI(B2:B="";"";SI(J2:J="";"";J2:J+K2:K)))}` |
+| Tasa de interacción (N1) | `={"Tasa de interacción (%)";ARRAYFORMULA(SI(M2:M="";"";M2:M/D2:D*100))}` |
+| Número de reels | `=CONTAR.SI(Respuestas!F:F;"Reel")` |
+| Tasa media de los reels | `=PROMEDIO.SI(Respuestas!F:F;"Reel";Respuestas!N:N)` |
+| Mediana de los reels | `=MEDIANA(FILTER(Respuestas!N2:N;Respuestas!F2:F="Reel";Respuestas!N2:N<>""))` |
+| Tasa media de los reels de una marca | `=PROMEDIO.SI.CONJUNTO(Respuestas!N:N;Respuestas!F:F;"Reel";Respuestas!C:C;"[marca]")` |
+
+</details>
+
+### 6. Tabla dinámica y figura
+
+1. **Cruzad marca y formato.** Seleccionad los datos de Respuestas → Insertar → **Tabla dinámica** → Hoja nueva. Filas: Marca; Columnas: Formato; Valores: Tasa de interacción resumida por AVERAGE, y otra vez por COUNTA para saber cuántas publicaciones hay detrás de cada media. Comparad sus cifras con las de vuestras fórmulas.
+2. **Haced la figura** a partir de vuestra tabla de Análisis, no del resumen de Forms: Insertar → Gráfico → **Gráfico de columnas**. En Personalizar → Serie, barras en gris o negro. Título con el hallazgo y eje con la unidad, por ejemplo «Tasa de interacción media por formato (%)». Menú ⋮ del gráfico → Descargar → Imagen PNG → `figura1.png`.
 
 Con 32 publicaciones los resultados son **exploratorios**: hablad de «las publicaciones analizadas», no de «las marcas de moda» en general.
 
 **Comprobación**
-- ☐ Pestaña Análisis con cada cifra del artículo calculada por fórmula.
-- ☐ Discrepancias con Gemini anotadas en el diario.
+- ☐ Columnas Interacción y Tasa de interacción que se rellenan solas.
+- ☐ Pestaña Análisis con cada cifra del artículo calculada con una fórmula comprobada.
+- ☐ Prompts, fórmulas y comprobaciones anotados en el diario.
 - ☐ `figura1.png` descargada.
 
 ---
@@ -351,7 +414,7 @@ En esta hora cada rol lidera un producto: **Redacción y Literatura** → artíc
 
 7. **Declaración de uso de IA** (antes de las referencias), adaptada a vuestro diario:
 
-   > **Declaración de uso de inteligencia artificial.** En la elaboración de este trabajo, los autores utilizaron Gemini (Google) para [proponer preguntas de investigación; identificar términos de búsqueda bibliográfica; realizar un análisis exploratorio de los datos, verificado mediante fórmulas en Google Sheets; traducir el título y el resumen; revisar el estilo del texto; generar el código de la web]. Una Gemini Gem configurada como revisora evaluó el borrador. Los autores revisaron y editaron todo el contenido y asumen plena responsabilidad sobre él. Ningún dato, referencia ni resultado fue generado por IA.
+   > **Declaración de uso de inteligencia artificial.** En la elaboración de este trabajo, los autores utilizaron Gemini (Google) para [proponer preguntas de investigación; identificar términos de búsqueda bibliográfica; generar las fórmulas del análisis de datos en Google Sheets, comprobadas por los autores; traducir el título y el resumen; revisar el estilo del texto; generar el código de la web]. Una Gemini Gem configurada como revisora evaluó el borrador. Los autores revisaron y editaron todo el contenido y asumen plena responsabilidad sobre él. Ningún dato, referencia ni resultado fue generado por IA.
 
 8. **Generad la bibliografía:** bajo «Referencias» → Zotero → Add/edit bibliography.
 9. **Biografías:** unas líneas por autor y su ORCID (crearlo es gratuito y lleva cinco minutos).
@@ -400,7 +463,7 @@ En esta hora cada rol lidera un producto: **Redacción y Literatura** → artíc
 **Parte A. El repositorio**
 
 1. En github.com → **+** → New repository → nombre `articulo-[sector]-grupo[n]` (sin espacios ni tildes) → **Public** → **Add a README file** → Create repository.
-2. Add file → Upload files → `figura1.png` y `datos.csv` (la pestaña Codificación descargada como CSV) → mensaje `Datos y figura` → Commit changes.
+2. Add file → Upload files → `figura1.png` y `datos.csv` (en «Datos», con la pestaña Respuestas abierta: Archivo → Descargar → CSV) → mensaje `Datos y figura` → Commit changes.
 3. Editad `README.md` (lápiz): título, pregunta, método en tres líneas y lista de archivos → Commit changes.
 
 **Parte B. La web con Canvas, en tres versiones**
@@ -479,7 +542,7 @@ Se evalúa el enlace a la web y todo lo que enlaza, junto con la presentación d
 |---|---|---|
 | Pregunta y coherencia | Pregunta respondible, hipótesis claras y coherencia hasta las conclusiones | 15 % |
 | Literatura | Al menos 6 referencias reales, comprobadas y citadas con Zotero | 20 % |
-| Datos y análisis | Libro de códigos, fiabilidad y cifras de Gemini verificadas con fórmulas | 25 % |
+| Datos y análisis | Formulario y libro de códigos, fiabilidad, fórmulas generadas con Gemini y comprobadas | 25 % |
 | Redacción | Estructura y normas de DYNA, claridad y conclusiones ajustadas a los datos | 15 % |
 | Transparencia | Diario de prompts, declaración de IA y datos abiertos | 15 % |
 | Difusión | Web funcional y presentación clara en 3 minutos | 10 % |

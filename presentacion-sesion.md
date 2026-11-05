@@ -1,23 +1,16 @@
----
-marp: true
-paginate: true
-title: IA orientada a la investigación en marketing
----
-
 <!--
-Presentación de la sesión. Cada diapositiva va separada por una línea "---".
-Compatible con Marp (extensión "Marp for VS Code"): se puede proyectar o exportar a PDF/PPTX.
-Los comentarios HTML son notas del orador.
+Presentación de la sesión, pensada para mostrarse en GitHub.
+Cada diapositiva va separada por una línea "---". Los comentarios HTML son notas del orador (GitHub no los muestra).
 -->
 
 # IA orientada a la investigación en marketing
 
-**De la pregunta a la publicación abierta en cuatro horas**
+**De la pregunta a la publicación abierta en cuatro horas**\
 Con métodos transparentes y verificables
 
-Seminario práctico de investigación
-**Máster Universitario en Dirección de Marketing Digital y Social**
-Facultad de Ciencias Sociales y de la Comunicación · Universidad de Cádiz
+Seminario práctico de investigación\
+**Máster Universitario en Dirección de Marketing Digital y Social**\
+Facultad de Ciencias Sociales y de la Comunicación · Universidad de Cádiz\
 5 de noviembre de 2026
 
 <!-- Bienvenida. Hoy cada grupo hará una investigación completa, de principio a fin. No hace falta saber programar ni haber usado antes estas herramientas. -->
@@ -38,7 +31,7 @@ Facultad de Ciencias Sociales y de la Comunicación · Universidad de Cádiz
 
 1. Usar la IA generativa para formular preguntas, explorar un tema y analizar datos, y **comprobar lo que responde**.
 2. Buscar, verificar y citar **bibliografía real** con un gestor de referencias.
-3. Recoger y analizar **datos propios** con criterios que otra persona pueda repetir.
+3. Recoger **datos propios** con un formulario y analizarlos con **fórmulas generadas con IA y comprobadas**, con criterios que otra persona pueda repetir.
 4. Escribir un **artículo breve** con estructura científica y **declarar el uso de IA**.
 5. Comunicar el estudio en una **presentación** y en una **web pública** con datos abiertos.
 
@@ -62,12 +55,12 @@ Facultad de Ciencias Sociales y de la Comunicación · Universidad de Cádiz
 
 | 🟢 Verde: libre | 🟠 Ámbar: verificar | 🔴 Rojo: prohibido |
 |---|---|---|
-| Lluvia de ideas | Analizar datos | Inventar o completar datos |
+| Lluvia de ideas | Analizar datos y generar fórmulas | Inventar o completar datos |
 | Revisar estilo y ortografía | Resumir artículos | Citar fuentes no comprobadas |
 | Dar formato | Sugerir dónde buscar | Redactar resultados y discusión |
 | Generar el código de la web | **Todo se verifica** | |
 
-Cada uso importante se anota en el **diario de prompts**:
+Cada uso importante se anota en el **diario de prompts**:\
 hora · herramienta · prompt · para qué · color · cómo se verificó
 
 ---
@@ -76,14 +69,15 @@ hora · herramienta · prompt · para qué · color · cómo se verificó
 
 La salida de un bloque es la entrada del siguiente.
 
-**Gemini y Gemas** → **Zotero** → **Google Sheets** → **Google Docs + plantilla DYNA** → **Slides** · **Gemini Canvas** → **GitHub Pages**
+**Gemini y Gemas** → **Zotero** → **Google Forms → Sheets** → **Google Docs + plantilla DYNA** → **Slides** · **Gemini Canvas** → **GitHub Pages**
 
 | Herramienta | Para qué sirve hoy |
 |---|---|
 | Gemini | Explorar el tema, analizar datos, generar código |
 | Gemini Gems | Un revisor con instrucciones fijas |
 | Zotero | Guardar, comprobar y citar referencias |
-| Google Sheets | Registrar, analizar y verificar los datos |
+| Google Forms | Registrar cada publicación con las mismas preguntas |
+| Google Sheets | Calcular con fórmulas (generadas con Gemini) y verificar |
 | Google Docs / Slides | Escribir el artículo / presentarlo |
 | Gemini Canvas + HTML, CSS, JS | Construir la web |
 | GitHub y GitHub Pages | Guardar con historial y publicar |
@@ -129,14 +123,50 @@ Sus comentarios son sugerencias: el grupo decide cuáles aplica y anota por qué
 
 ---
 
-## Datos: análisis de contenido verificado
+## Recogida de datos con Google Forms
 
-1. **Desplegables cerrados** en Sheets: nadie escribe «reel», «Reels» y «vídeo» para lo mismo.
-2. **Libro de códigos** común: una definición para cada categoría.
-3. **Fiabilidad:** dos personas codifican las mismas 5 publicaciones → **acuerdo mínimo del 80 %**.
-4. **Verificación con fórmulas:** cada cifra de Gemini se repite con `CONTAR.SI`, `PROMEDIO.SI` o `MEDIANA`.
+Cada publicación se registra con **un envío del formulario**: siempre las mismas preguntas y las mismas opciones cerradas.
 
-> **Si Gemini y la fórmula no coinciden, manda la fórmula.**
+- **Opciones cerradas:** nadie escribe «reel», «Reels» y «vídeo» para lo mismo.
+- **Libro de códigos:** una definición acordada para cada categoría.\
+  *Ejemplo:* «Aparecen personas = se ve una cara o un cuerpo; unas manos sujetando el producto no cuentan».
+- **Fiabilidad:** otra persona vuelve a codificar 5 publicaciones sin mirar las originales.\
+  Si coinciden en 4 de 5 → **80 %**, se acepta. Si no, la definición es ambigua y se aclara.
+- Las respuestas llegan solas a una **hoja de cálculo vinculada**.
+
+<!-- El formulario se puede rellenar desde el móvil mientras se mira Instagram. Coordinación lo prepara durante el bloque 2. No recoger correos. -->
+
+---
+
+## Los gráficos de Forms no bastan
+
+Forms dibuja **un gráfico por pregunta**: cuántos reels, cuántas publicaciones por marca…
+
+Pero cada gráfico **mira una sola pregunta**: no relaciona unas respuestas con otras.
+
+| Forms sí os dice… | Forms no os dice… |
+|---|---|
+| Cuántas publicaciones hay de cada formato | Qué formato consigue **más interacción** |
+| Cuántas hay de cada marca | La **tasa** de interacción, la **media** o la **mediana** |
+| Cuántas muestran personas | Si la diferencia se mantiene **dentro de cada marca** |
+
+Es decir, **no responde a vuestras hipótesis**. Para eso están los datos en Google Sheets.
+
+---
+
+## Vuestros propios cálculos: Gemini escribe la fórmula, vosotros la comprobáis
+
+1. **Pedid fórmulas, no resultados.** Un número suelto de Gemini no se puede comprobar; una fórmula se lee, se prueba y se queda en la hoja.
+2. **Dadle contexto:** qué hay en cada columna y que las celdas vacías no son ceros.
+3. **Un cálculo por prompt:** recuentos → medias y medianas → por marca y formato.
+4. **Comprobad cada fórmula:**
+   - los recuentos deben coincidir con el resumen de Forms,
+   - repetid la cuenta a mano con 2 o 3 filas,
+   - si da error, pedid a Gemini que lo explique antes de cambiar nada.
+
+> Ejemplo: Gemini dice «los reels tienen una tasa media del 2,3 %»; vuestra fórmula comprobada da 2,1 %. **Manda la fórmula.**
+
+<!-- Clave didáctica: el formulario añade filas nuevas, así que hay que pedir fórmulas que se apliquen a toda la columna (ARRAYFORMULA). Es un buen ejemplo de por qué hay que describir bien el contexto a la IA. -->
 
 ---
 
@@ -152,7 +182,7 @@ Sus comentarios son sugerencias: el grupo decide cuáles aplica y anota por qué
 
 ## La revista de referencia: DYNA
 
-Trabajamos con las **normas y la plantilla oficial** de una revista real:
+Trabajamos con las **normas y la plantilla oficial** de una revista real:\
 [revistas.unal.edu.co/index.php/dyna/about](https://revistas.unal.edu.co/index.php/dyna/about)
 
 - Título, resumen (máx. 150 palabras) y palabras clave **en inglés y en español**.
@@ -170,7 +200,7 @@ Trabajamos con las **normas y la plantilla oficial** de una revista real:
 | Coordinación y datos | Literatura | Redacción | Difusión |
 |---|---|---|---|
 | Pregunta inicial | Biblioteca Zotero | Estructura del artículo | Repositorio GitHub |
-| Hoja de codificación | Citas y DOI | Coherencia global | Web con Canvas |
+| Formulario de codificación | Citas y DOI | Coherencia global | Web con Canvas |
 | Análisis y fórmulas | Marco teórico | Revisión con la Gema | |
 | Presentación oral | | | |
 
@@ -186,9 +216,9 @@ En la recogida de datos, **las cuatro personas codifican** (8 publicaciones cada
 | 0:15–0:45 | 0. Cuentas e instalaciones (por roles) | Drive, Zotero y GitHub listos |
 | 0:45–1:05 | 1. Pregunta de investigación | Pregunta, 2 hipótesis y Gema |
 | 1:05–1:30 | 2. Literatura | ≥ 6 referencias comprobadas |
-| 1:30–2:05 | 3. Recogida de datos | 32 publicaciones y fiabilidad |
+| 1:30–2:05 | 3. Recogida de datos con Forms | 32 publicaciones y fiabilidad |
 | 2:05–2:15 | *Descanso* | |
-| 2:15–2:45 | 4. Análisis | Cifras verificadas y `figura1.png` |
+| 2:15–2:45 | 4. Análisis con fórmulas de Gemini | Cifras comprobadas y `figura1.png` |
 | 2:45–3:40 | 5, 6 y 7. Producción en paralelo | Artículo, presentación y web |
 | 3:40–4:00 | Presentaciones de 3 min y cierre | Enlace entregado |
 
@@ -230,7 +260,7 @@ En la recogida de datos, **las cuatro personas codifican** (8 publicaciones cada
 
 | Criterio | Qué se valora | Peso |
 |---|---|---|
-| Datos y análisis | Libro de códigos, fiabilidad, cifras verificadas | **25 %** |
+| Datos y análisis | Formulario, fiabilidad, fórmulas con Gemini comprobadas | **25 %** |
 | Literatura | ≥ 6 referencias reales citadas con Zotero | **20 %** |
 | Pregunta y coherencia | Pregunta respondible, hipótesis claras | **15 %** |
 | Redacción | Normas DYNA, conclusiones ajustadas a los datos | **15 %** |
