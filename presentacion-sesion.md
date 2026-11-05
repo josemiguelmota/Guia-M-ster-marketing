@@ -61,7 +61,7 @@ Facultad de Ciencias Sociales y de la Comunicación · Universidad de Cádiz\
 | Generar el código de la web | **Todo se verifica** | |
 
 Cada uso importante se anota en el **diario de prompts**:\
-hora · herramienta · prompt · para qué · color · cómo se verificó
+hora · **persona** · herramienta · prompt · para qué · color · cómo se verificó
 
 ---
 
@@ -81,6 +81,7 @@ La salida de un bloque es la entrada del siguiente.
 | Google Docs / Slides | Escribir el artículo / presentarlo |
 | Gemini Canvas + HTML, CSS, JS | Construir la web |
 | GitHub y GitHub Pages | Guardar con historial y publicar |
+| *GitHub Copilot Chat (opcional)* | *Ayuda a Difusión si la web falla* |
 
 <!-- Todo es gratuito o está incluido en la cuenta de Google de la UCA. Overleaf, como complemento opcional. -->
 
@@ -132,6 +133,7 @@ Cada publicación se registra con **un envío del formulario**: siempre las mism
   *Ejemplo:* «Aparecen personas = se ve una cara o un cuerpo; unas manos sujetando el producto no cuentan».
 - **Fiabilidad:** otra persona vuelve a codificar 5 publicaciones sin mirar las originales.\
   Si coinciden en 4 de 5 → **80 %**, se acepta. Si no, la definición es ambigua y se aclara.
+- **Observación manual:** se abre cada publicación y se anota lo que se ve (formato, fecha, me gusta, comentarios, enlace). Sin capturas ni programas de extracción.
 - Las respuestas llegan solas a una **hoja de cálculo vinculada**.
 
 <!-- El formulario se puede rellenar desde el móvil mientras se mira Instagram. Coordinación lo prepara durante el bloque 2. No recoger correos. -->
@@ -241,7 +243,7 @@ En la recogida de datos, **las cuatro personas codifican** (8 publicaciones cada
 
 ---
 
-## Entregables: un único enlace
+## Entregables: dos entregas en Moodle
 
 | Producto | Formato final |
 |---|---|
@@ -252,20 +254,23 @@ En la recogida de datos, **las cuatro personas codifican** (8 publicaciones cada
 | Web del artículo | Página en GitHub Pages |
 | Transparencia | Diario de prompts y declaración de IA |
 
-> Se entrega **la dirección de la web en GitHub Pages**: desde ella se llega a todo lo demás.
+> **De grupo (hoy):** una persona sube a Moodle **la dirección de la web en GitHub Pages**: desde ella se llega a todo lo demás.\
+> **Individual (en casa):** cada alumno sube a Moodle una **reflexión de 300–400 palabras**: qué hice yo, un uso de la IA que verifiqué y qué cambiaría.
 
 ---
 
-## Evaluación
+## Evaluación: 80 % grupo · 20 % individual
 
-| Criterio | Qué se valora | Peso |
-|---|---|---|
-| Datos y análisis | Formulario, fiabilidad, fórmulas con Gemini comprobadas | **25 %** |
-| Literatura | ≥ 6 referencias reales citadas con Zotero | **20 %** |
-| Pregunta y coherencia | Pregunta respondible, hipótesis claras | **15 %** |
-| Redacción | Normas DYNA, conclusiones ajustadas a los datos | **15 %** |
-| Transparencia | Diario de prompts, declaración de IA, datos abiertos | **15 %** |
-| Difusión | Web funcional y presentación en 3 minutos | **10 %** |
+| Trabajo de grupo | Peso | | Trabajo individual | Peso |
+|---|---|---|---|---|
+| Datos y análisis | **20 %** | | Aportación concreta y comprobable | **6 %** |
+| Literatura | **16 %** | | Uso de la IA verificado | **8 %** |
+| Pregunta y coherencia | **12 %** | | Reflexión crítica | **6 %** |
+| Redacción (normas DYNA) | **12 %** | | | |
+| Transparencia | **12 %** | | | |
+| Difusión (web y 3 min) | **8 %** | | | |
+
+La columna **Persona** del diario de prompts es la prueba de lo que aporta cada uno.
 
 ---
 

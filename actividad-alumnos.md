@@ -15,7 +15,12 @@ Cada grupo hará un **análisis de contenido de 32 publicaciones de Instagram de
 
 Usaréis la IA como **ayudante declarado y verificable, nunca como autora**.
 
-**Se entrega un único enlace:** la dirección de vuestra web en GitHub Pages.
+**Hay dos entregas en Moodle:**
+
+| Entrega | Quién | Qué | Cuándo | Peso |
+|---|---|---|---|---|
+| **De grupo** | Una persona por grupo | El enlace a vuestra web en GitHub Pages, desde la que se llega a todo lo demás | Al final de la sesión | 80 % |
+| **Individual** | Cada alumno | Una reflexión sobre vuestro trabajo y vuestro uso de la IA ([ver más abajo](#entrega-individual-reflexión-en-moodle)) | En casa, en el plazo que indique Moodle | 20 % |
 
 ---
 
@@ -33,9 +38,11 @@ Usaréis la IA como **ayudante declarado y verificable, nunca como autora**.
 
 Cada uso importante de la IA se anota en la pestaña **Diario de prompts** de la hoja «Datos»:
 
-| A | B | C | D | E | F |
-|---|---|---|---|---|---|
-| Hora | Herramienta | Prompt (copiado tal cual) | Para qué se usó | Semáforo | Cómo se verificó |
+| A | B | C | D | E | F | G |
+|---|---|---|---|---|---|---|
+| Hora | Persona | Herramienta | Prompt (copiado tal cual) | Para qué se usó | Semáforo | Cómo se verificó |
+
+La columna **Persona** (nombre de quien hizo la consulta) permite ver qué aportó cada uno: la usaréis en vuestra reflexión individual.
 
 ### Cómo se verifica lo que da la IA
 
@@ -111,7 +118,7 @@ Cada rol hace su parte **a la vez**. Si alguien termina antes, ayuda a quien vay
 2. **Dentro de la carpeta, cread dos archivos:**
    - Nuevo → Documentos de Google → «Artículo». Escribid al principio quién tiene cada rol.
    - Nuevo → Hojas de cálculo de Google → «Datos».
-3. **Preparad el diario de prompts.** En «Datos», renombrad la primera pestaña como **Diario de prompts** (doble clic en el nombre) y escribid en la fila 1 las seis columnas: Hora, Herramienta, Prompt (copiado tal cual), Para qué se usó, Semáforo, Cómo se verificó.
+3. **Preparad el diario de prompts.** En «Datos», renombrad la primera pestaña como **Diario de prompts** (doble clic en el nombre) y escribid en la fila 1 las siete columnas: Hora, Persona, Herramienta, Prompt (copiado tal cual), Para qué se usó, Semáforo, Cómo se verificó.
 4. **Probad el acceso a Instagram.** Instagram limita lo que se ve sin iniciar sesión. Para codificar en el bloque 3, cada persona puede usar **la aplicación de su móvil** con su cuenta personal o iniciar sesión en el navegador. Comprobadlo ahora.
 5. Si os sobra tiempo, adelantad el bloque 1 (elegir las 4 marcas).
 
@@ -147,7 +154,7 @@ El nombre de usuario de GitHub formará parte de la dirección de la web: `https
 
 **Comprobación del bloque 0**
 - ☐ Carpeta compartida con el grupo y con el profesor, con «Artículo» y «Datos».
-- ☐ Pestaña Diario de prompts con sus seis columnas.
+- ☐ Pestaña Diario de prompts con sus siete columnas.
 - ☐ Todo el grupo y el profesor en la biblioteca de grupo de Zotero.
 - ☐ Una cita de prueba insertada desde el menú Zotero de Google Docs (o plan B acordado con el profesor).
 - ☐ Cuenta de GitHub de Difusión creada y con la sesión iniciada.
@@ -248,7 +255,7 @@ Las marcas ya están elegidas en el bloque 1, así que Coordinación puede monta
 
    | Pregunta | Tipo | Opciones o validación | Obligatoria |
    |---|---|---|---|
-   | ID de la publicación | Respuesta corta | P-01, P-02… | Sí |
+   | ID de la publicación | Respuesta corta | P-01 a P-32 (cada marca, su tramo) | Sí |
    | Marca | Desplegable | Las 4 marcas | Sí |
    | Seguidores de la cuenta | Respuesta corta | Validación: número | Sí |
    | Fecha de publicación | Fecha | — | Sí |
@@ -259,6 +266,7 @@ Las marcas ya están elegidas en el bloque 1, así que Coordinación puede monta
    | Me gusta | Respuesta corta | Validación: número. Se deja vacía si la marca los oculta | **No** |
    | Comentarios | Respuesta corta | Validación: número | Sí |
    | Codificador/a | Respuesta corta | Iniciales | Sí |
+   | Enlace de la publicación | Respuesta corta | Validación: texto → URL | Sí |
 
    Para la validación de número: en la pregunta, menú ⋮ (abajo a la derecha) → **Validación de respuesta** → Número.
 3. **Privacidad.** Pestaña Configuración → Respuestas → **Recoger direcciones de correo: No recoger**.
@@ -266,16 +274,41 @@ Las marcas ya están elegidas en el bloque 1, así que Coordinación puede monta
 5. **Compartid el enlace.** Botón **Enviar** → icono del enlace → Acortar URL → Copiar. Pegadlo al principio de «Artículo» y en el chat del grupo.
 6. **Haced una prueba.** Enviad una respuesta de prueba y comprobad que aparece en la pestaña Respuestas. Después borradla en los dos sitios: en el formulario (Respuestas → Individual → icono de la papelera) y en la hoja (botón derecho sobre la fila → Eliminar fila).
 
+### Cómo se recoge cada dato de Instagram
+
+Todo se hace **mirando y anotando a mano** cada publicación: no se descarga nada, no se usan programas de extracción y **no hace falta hacer capturas de pantalla**, porque el enlace de cada publicación basta para volver a ella. Instagram en el **ordenador** muestra mejor las cifras y la fecha; en el **móvil** también se puede, con la aplicación.
+
+**Primero, en el perfil de la marca:**
+
+1. Anotad el número de **seguidores** que aparece en la cabecera del perfil. Si sale redondeado («12,3 mil»), escribid la cifra aproximada (12300) y usad la misma para todas las publicaciones de esa marca.
+2. En la cuadrícula de publicaciones, **saltad las fijadas** (las primeras, con un icono de chincheta arriba a la derecha) y las de **menos de 7 días** (aún están acumulando interacción).
+3. Elegid las **8 siguientes**, de la más reciente a la más antigua.
+
+**Después, publicación por publicación** (abridla y rellenad un envío del formulario):
+
+| Pregunta del formulario | Dónde se mira |
+|---|---|
+| ID de la publicación | Usad el tramo de vuestra marca: marca 1 → P-01 a P-08; marca 2 → P-09 a P-16; marca 3 → P-17 a P-24; marca 4 → P-25 a P-32 |
+| Fecha de publicación | Debajo de la publicación. Si pone «hace 3 días» o similar, en el ordenador pasad el ratón por encima para ver la fecha exacta |
+| Formato | En la cuadrícula, icono de arriba a la derecha: **cuadrados apilados** = Carrusel; **icono de reproducción o de reel** = Reel; **sin icono** = Imagen |
+| Tema principal, Aparecen personas | Mirad la imagen o el vídeo completo (en un carrusel, todas las diapositivas) y aplicad el libro de códigos |
+| Llamada a la acción | Leed el texto completo de la publicación (pulsad «más» para desplegarlo) |
+| Me gusta | La cifra junto al corazón o «X Me gusta» debajo de la publicación. Si solo pone «Les gusta a… y otras personas», la marca los oculta: **dejadlo vacío**. Si sale redondeado («12,5 mil»), escribid la aproximación (12500) |
+| Comentarios | El número junto al icono del bocadillo o «Ver los X comentarios». Si los comentarios están desactivados, escribid 0 y anotadlo en Metodología. **No copiéis comentarios ni nombres de usuarios** |
+| Enlace de la publicación | En el ordenador, copiad la dirección del navegador con la publicación abierta; en el móvil, ⋯ o el botón de compartir → **Copiar enlace** |
+
+Las cifras de Instagram cambian con el tiempo: por eso se anota la **fecha de recogida** en «Artículo».
+
 ### Durante el bloque
 
 1. **Acordad el libro de códigos (5 min).** En «Artículo», sección Metodología, escribid una definición de cada categoría para que todos clasifiquen igual. Por ejemplo:
    - *Aparecen personas:* se ve al menos una cara o un cuerpo; unas manos sujetando el producto no cuentan.
    - *Llamada a la acción:* el texto invita explícitamente a comprar, comentar, visitar el enlace, guardar o participar.
    - *Tema principal:* si hay varios, el que ocupa más espacio en la imagen o el texto.
-2. **Codificad (20 min).** Cada persona, una marca: sus **8 publicaciones más recientes con al menos 7 días de antigüedad**, saltando las fijadas. **Un envío del formulario por publicación** (al enviar, pulsad «Enviar otra respuesta»). Funciona bien mirar Instagram en el móvil y rellenar el formulario en el ordenador. Anotad en «Artículo» la fecha de recogida.
+2. **Codificad (20 min).** Cada persona, una marca y su tramo de ID, siguiendo el apartado anterior. **Un envío del formulario por publicación** (al enviar, pulsad «Enviar otra respuesta»). Funciona bien mirar Instagram en el ordenador y rellenar el formulario en el móvil, o al revés. Anotad en «Artículo» la fecha de recogida.
 3. **Comprobad que llega todo.** Coordinación revisa la pestaña Respuestas: deben aparecer 32 filas, sin IDs repetidos.
 4. **Comprobad la fiabilidad (10 min).** Sirve para saber si el libro de códigos funciona, es decir, si dos personas clasifican igual la misma publicación.
-   - Elegid 5 publicaciones de una marca ya codificadas. Otra persona las vuelve a codificar **sin mirar** las respuestas originales, en una pestaña nueva **Fiabilidad** (no en el formulario, para no duplicar datos).
+   - Elegid 5 publicaciones de una marca ya codificadas. Otra persona las abre con su **enlace** (columna M de Respuestas) y las vuelve a codificar **sin mirar** las respuestas originales, en una pestaña nueva **Fiabilidad** (no en el formulario, para no duplicar datos).
    - Poned una al lado de la otra las dos codificaciones de cada variable (Formato, Tema, Personas, Llamada a la acción).
    - Para cada variable: acuerdo = coincidencias ÷ 5 × 100. Ejemplo: si coincidís en 4 de las 5, el acuerdo es del 80 %.
    - Si una variable no llega al **80 %**, su definición es ambigua: aclaradla en el libro de códigos y revisad esa variable en las publicaciones dudosas.
@@ -311,15 +344,15 @@ Si Gemini os da directamente un número, no sabéis de dónde sale. Si os da una
 
 Abrid Gemini en el panel de la hoja (icono ✦, arriba a la derecha) o en gemini.google.com y empezad dándole el contexto:
 
-> Trabajo en Google Sheets configurado en español (nombres de funciones en español y punto y coma como separador). La pestaña «Respuestas» se rellena con un formulario de Google y tiene estas columnas: A marca temporal, B ID de la publicación, C marca, D seguidores, E fecha de publicación, F formato (Imagen, Carrusel o Reel), G tema principal, H aparecen personas (Sí/No), I llamada a la acción (Sí/No), J me gusta (puede estar vacía si la marca los oculta), K comentarios, L codificador/a. Las celdas vacías son datos no disponibles, no ceros. Cuando te pida un cálculo, dame la fórmula, dime en qué celda pegarla y explícame qué hace cada parte. No me des el resultado numérico: lo calcularé yo con la fórmula.
+> Trabajo en Google Sheets configurado en español (nombres de funciones en español y punto y coma como separador). La pestaña «Respuestas» se rellena con un formulario de Google y tiene estas columnas: A marca temporal, B ID de la publicación, C marca, D seguidores, E fecha de publicación, F formato (Imagen, Carrusel o Reel), G tema principal, H aparecen personas (Sí/No), I llamada a la acción (Sí/No), J me gusta (puede estar vacía si la marca los oculta), K comentarios, L codificador/a, M enlace de la publicación. Las celdas vacías son datos no disponibles, no ceros. Cuando te pida un cálculo, dame la fórmula, dime en qué celda pegarla y explícame qué hace cada parte. No me des el resultado numérico: lo calcularé yo con la fórmula.
 
 ### 3. Columnas calculadas en la pestaña Respuestas
 
 El formulario añade una fila nueva con cada respuesta, y una fórmula escrita fila a fila no se copia sola a las filas nuevas. Hay que pedir una fórmula que se aplique a toda la columna:
 
-> Necesito dos columnas calculadas en la pestaña «Respuestas» que se rellenen solas cuando llegue una respuesta nueva del formulario: en M, «Interacción» = me gusta + comentarios (vacía si no hay me gusta); en N, «Tasa de interacción (%)» = interacción ÷ seguidores × 100. Quiero una única fórmula por columna, en la fila 1, que incluya el encabezado.
+> Necesito dos columnas calculadas en la pestaña «Respuestas» que se rellenen solas cuando llegue una respuesta nueva del formulario: en N, «Interacción» = me gusta + comentarios (vacía si no hay me gusta); en O, «Tasa de interacción (%)» = interacción ÷ seguidores × 100. Quiero una única fórmula por columna, en la fila 1, que incluya el encabezado.
 
-Pegad las fórmulas en M1 y N1. **Comprobadlas:** elegid dos filas y haced la cuenta con la calculadora del móvil.
+Pegad las fórmulas en N1 y O1. **Comprobadlas:** elegid dos filas y haced la cuenta con la calculadora del móvil.
 
 ### 4. Pestaña Análisis: un cálculo por prompt
 
@@ -350,12 +383,12 @@ El cálculo 3 es la clave: si la marca con más seguidores publica casi todos lo
 
 | Cálculo | Fórmula |
 |---|---|
-| Interacción (M1) | `={"Interacción";ARRAYFORMULA(SI(B2:B="";"";SI(J2:J="";"";J2:J+K2:K)))}` |
-| Tasa de interacción (N1) | `={"Tasa de interacción (%)";ARRAYFORMULA(SI(M2:M="";"";M2:M/D2:D*100))}` |
+| Interacción (N1) | `={"Interacción";ARRAYFORMULA(SI(B2:B="";"";SI(J2:J="";"";J2:J+K2:K)))}` |
+| Tasa de interacción (O1) | `={"Tasa de interacción (%)";ARRAYFORMULA(SI(N2:N="";"";N2:N/D2:D*100))}` |
 | Número de reels | `=CONTAR.SI(Respuestas!F:F;"Reel")` |
-| Tasa media de los reels | `=PROMEDIO.SI(Respuestas!F:F;"Reel";Respuestas!N:N)` |
-| Mediana de los reels | `=MEDIANA(FILTER(Respuestas!N2:N;Respuestas!F2:F="Reel";Respuestas!N2:N<>""))` |
-| Tasa media de los reels de una marca | `=PROMEDIO.SI.CONJUNTO(Respuestas!N:N;Respuestas!F:F;"Reel";Respuestas!C:C;"[marca]")` |
+| Tasa media de los reels | `=PROMEDIO.SI(Respuestas!F:F;"Reel";Respuestas!O:O)` |
+| Mediana de los reels | `=MEDIANA(FILTER(Respuestas!O2:O;Respuestas!F2:F="Reel";Respuestas!O2:O<>""))` |
+| Tasa media de los reels de una marca | `=PROMEDIO.SI.CONJUNTO(Respuestas!O:O;Respuestas!F:F;"Reel";Respuestas!C:C;"[marca]")` |
 
 </details>
 
@@ -509,6 +542,17 @@ En esta hora cada rol lidera un producto: **Redacción y Literatura** → artíc
 6. **Para actualizar:** abrid `index.html` en GitHub → lápiz → seleccionad todo → pegad la versión nueva → Commit changes.
 7. **Comprobad cada commit** en el historial: las líneas en verde y rojo deben estar solo en las zonas de esa versión.
 
+> **Opcional (Difusión): ayuda de GitHub Copilot Chat**
+>
+> Si algo de la web no funciona, podéis preguntar sin salir de GitHub. Con la sesión iniciada, abrid el repositorio y pulsad el **icono de Copilot** (arriba, junto a la barra de búsqueda). Cualquier cuenta tiene **Copilot Free**, con un número limitado de mensajes al mes. Si os lo pide, activadlo en Settings → Copilot.
+>
+> Usos recomendados 🟠, siempre comprobando el resultado en la web publicada:
+> - «¿Por qué no se ve la imagen `figura1.png` en mi `index.html`?»
+> - «Explícame qué ha cambiado en mi último commit de `index.html`.»
+> - «¿Por qué mi web en GitHub Pages muestra un error 404?»
+>
+> Copilot **explica y propone**, pero el texto de la web sigue saliendo de vuestros documentos, y los cambios se hacen igual que antes: Canvas → copiar → editar `index.html` → commit. Anotad cada consulta en el diario de prompts y añadid Copilot a la declaración de uso de IA si lo usáis.
+
 **Comprobación**
 - ☐ Repositorio público con README, `datos.csv` y `figura1.png`.
 - ☐ Tres commits de `index.html` (v1, v2 y v3).
@@ -522,7 +566,7 @@ En esta hora cada rol lidera un producto: **Redacción y Literatura** → artíc
 2. **Probad la web como un lector:** en una ventana de incógnito y en el móvil. Pulsad cada enlace y comprobad que la figura se ve.
 3. **Completad la diapositiva 6** con la dirección real de la web.
 4. **Presentad en 3 minutos.** Al terminar, el resto puede hacer una pregunta.
-5. **Entregad el enlace** de la web por el canal que indique el profesor.
+5. **Entregad el enlace en Moodle.** Una persona del grupo lo sube a la tarea de entrega de grupo, con los nombres de los cuatro integrantes.
 
 > Si un enlace no funciona, casi siempre es el nombre del archivo: debe coincidir exactamente, con mayúsculas y extensión (`figura1.png` ≠ `Figura1.PNG`).
 
@@ -530,22 +574,45 @@ En esta hora cada rol lidera un producto: **Redacción y Literatura** → artíc
 - ☐ Web publicada con resumen, hallazgo, descargas, cómo citar y declaración de IA.
 - ☐ Repositorio con `articulo.pdf`, `presentacion.pdf`, `datos.csv`, `figura1.png` y README.
 - ☐ Carpeta de Drive, biblioteca de Zotero y Gema compartidas con el profesor.
-- ☐ Diario de prompts completo.
+- ☐ Diario de prompts completo, con la columna Persona rellena en todas las filas.
+- ☐ Enlace de la web entregado en Moodle.
 
 ---
 
 ## Evaluación
 
-Se evalúa el enlace a la web y todo lo que enlaza, junto con la presentación de 3 minutos.
+### Trabajo de grupo (80 % de la nota)
+
+Se evalúa el enlace a la web y todo lo que enlaza, junto con la presentación de 3 minutos. La nota es la misma para todo el grupo.
 
 | Criterio | Qué se valora | Peso |
 |---|---|---|
-| Pregunta y coherencia | Pregunta respondible, hipótesis claras y coherencia hasta las conclusiones | 15 % |
-| Literatura | Al menos 6 referencias reales, comprobadas y citadas con Zotero | 20 % |
-| Datos y análisis | Formulario y libro de códigos, fiabilidad, fórmulas generadas con Gemini y comprobadas | 25 % |
-| Redacción | Estructura y normas de DYNA, claridad y conclusiones ajustadas a los datos | 15 % |
-| Transparencia | Diario de prompts, declaración de IA y datos abiertos | 15 % |
-| Difusión | Web funcional y presentación clara en 3 minutos | 10 % |
+| Pregunta y coherencia | Pregunta respondible, hipótesis claras y coherencia hasta las conclusiones | 12 % |
+| Literatura | Al menos 6 referencias reales, comprobadas y citadas con Zotero | 16 % |
+| Datos y análisis | Formulario y libro de códigos, fiabilidad, fórmulas generadas con Gemini y comprobadas | 20 % |
+| Redacción | Estructura y normas de DYNA, claridad y conclusiones ajustadas a los datos | 12 % |
+| Transparencia | Diario de prompts, declaración de IA y datos abiertos | 12 % |
+| Difusión | Web funcional y presentación clara en 3 minutos | 8 % |
+
+### Trabajo individual (20 % de la nota)
+
+| Criterio | Qué se valora | Peso |
+|---|---|---|
+| Aportación | Lo que cuenta es concreto y se comprueba en el diario, el formulario, Zotero o el historial | 6 % |
+| Uso de la IA | Un caso real explicado: qué se pidió, qué respondió y cómo se verificó | 8 % |
+| Reflexión crítica | Una limitación del estudio o de la IA bien argumentada, y qué cambiaríais | 6 % |
+
+---
+
+## Entrega individual: reflexión (en Moodle)
+
+**Cada alumno** entrega en la tarea individual de Moodle, en el plazo indicado allí, un texto de **300 a 400 palabras** con tres apartados:
+
+1. **Qué hice yo.** Vuestro rol y vuestras tareas concretas: qué publicaciones codificasteis (tramo de ID), qué referencias aportasteis, qué partes del artículo, la presentación o la web hicisteis. Señalad las filas del diario de prompts que llevan vuestro nombre.
+2. **Un uso de la IA que verifiqué.** Elegid una consulta vuestra del diario: qué pedisteis, qué respondió la IA, cómo lo comprobasteis y qué encontrasteis (por ejemplo, una referencia que no existía, una cifra que no coincidía con la fórmula o una fórmula que hubo que corregir).
+3. **Qué cambiaría.** Una limitación del estudio o del uso de la IA, y qué haríais distinto en una investigación real.
+
+La reflexión la escribís vosotros. La IA solo puede usarse en verde (revisar ortografía y estilo) y, si la usáis, añadid al final una línea que lo declare.
 
 ---
 
