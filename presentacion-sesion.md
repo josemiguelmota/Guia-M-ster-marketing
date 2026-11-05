@@ -44,7 +44,7 @@ Facultad de Ciencias Sociales y de la Comunicación · Universidad de Cádiz\
 3. **Datos** — 32 publicaciones (8 por marca) codificadas con las mismas reglas.
 4. **Análisis** — la IA analiza; vosotros comprobáis cada cifra con fórmulas.
 5. **Artículo** — estructura científica, citas automáticas y declaración de IA.
-6. **Presentación** — 3 minutos, 6 diapositivas.
+6. **Presentación** — 6 diapositivas en Google Slides que se entienden solas (no se exponen).
 7. **Web** — resumen, hallazgo y archivos descargables en GitHub Pages.
 
 <!-- Ejemplo de pregunta: ¿qué formato (reel, carrusel o imagen) genera más interacción en las marcas de moda sostenible? -->
@@ -78,7 +78,7 @@ La salida de un bloque es la entrada del siguiente.
 | Zotero | Guardar, comprobar y citar referencias |
 | Google Forms | Registrar cada publicación con las mismas preguntas |
 | Google Sheets | Calcular con fórmulas (generadas con Gemini) y verificar |
-| Google Docs / Slides | Escribir el artículo / presentarlo |
+| Google Docs / Slides | Escribir el artículo / hacer la presentación |
 | Gemini Canvas + HTML, CSS, JS | Construir la web |
 | GitHub y GitHub Pages | Guardar con historial y publicar |
 | *GitHub Copilot Chat (opcional)* | *Ayuda a Difusión si la web falla* |
@@ -204,7 +204,7 @@ Trabajamos con las **normas y la plantilla oficial** de una revista real:\
 | Pregunta inicial | Biblioteca Zotero | Estructura del artículo | Repositorio GitHub |
 | Formulario de codificación | Citas y DOI | Coherencia global | Web con Canvas |
 | Análisis y fórmulas | Marco teórico | Revisión con la Gema | |
-| Presentación oral | | | |
+| Presentación (Slides) | | | |
 
 En la recogida de datos, **las cuatro personas codifican** (8 publicaciones cada una, una marca por persona).
 
@@ -221,8 +221,8 @@ En la recogida de datos, **las cuatro personas codifican** (8 publicaciones cada
 | 1:30–2:05 | 3. Recogida de datos con Forms | 32 publicaciones y fiabilidad |
 | 2:05–2:15 | *Descanso* | |
 | 2:15–2:45 | 4. Análisis con fórmulas de Gemini | Cifras comprobadas y `figura1.png` |
-| 2:45–3:40 | 5, 6 y 7. Producción en paralelo | Artículo, presentación y web |
-| 3:40–4:00 | Presentaciones de 3 min y cierre | Enlace entregado |
+| 2:45–3:45 | 5, 6 y 7. Producción en paralelo | Artículo, presentación y web |
+| 3:45–4:00 | Cierre | Enlace entregado en Moodle |
 
 ---
 
@@ -250,7 +250,7 @@ En la recogida de datos, **las cuatro personas codifican** (8 publicaciones cada
 | Artículo breve (1.500–2.000 palabras, plantilla DYNA) | `articulo.pdf` |
 | Datos y análisis | `datos.csv` y hoja compartida |
 | Figura del hallazgo principal (escala de grises) | `figura1.png` |
-| Presentación de 3 minutos | `presentacion.pdf` |
+| Presentación en Google Slides (no se expone) | `presentacion.pdf` |
 | Web del artículo | Página en GitHub Pages |
 | Transparencia | Diario de prompts y declaración de IA |
 
@@ -268,7 +268,7 @@ En la recogida de datos, **las cuatro personas codifican** (8 publicaciones cada
 | Pregunta y coherencia | **12 %** | | Reflexión crítica | **6 %** |
 | Redacción (normas DYNA) | **12 %** | | | |
 | Transparencia | **12 %** | | | |
-| Difusión (web y 3 min) | **8 %** | | | |
+| Difusión (web y presentación) | **8 %** | | | |
 
 La columna **Persona** del diario de prompts es la prueba de lo que aporta cada uno.
 
