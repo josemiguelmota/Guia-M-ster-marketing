@@ -1,0 +1,1005 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introducción a la IA</title>
+<meta name="description" content="Introducción a la inteligencia artificial aplicada al marketing. Máster Universitario en Dirección de Marketing Digital y Social, Universidad de Cádiz.">
+<meta name="author" content="José Miguel Mota Macías">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23143a6b'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='%23ffb547' text-anchor='middle'%3EIA%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f6f7fb; --surface:#ffffff; --surface-2:#eef2f8; --ink:#16202e; --ink-2:#4a5568; --line:#d9e0ea;
+  --brand:#143a6b; --brand-2:#1f5ba8; --accent:#e8892b; --accent-soft:#fff1e1;
+  --ok:#2f7d4f; --ok-soft:#e6f4ec; --bad:#b23b3b; --bad-soft:#fbe9e9;
+  --code-bg:#0f1b2d; --code-ink:#e6edf7;
+  --radius:16px; --shadow:0 1px 2px rgba(16,24,40,.06),0 6px 24px rgba(16,24,40,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d1420; --surface:#152032; --surface-2:#1b2940; --ink:#e7edf6; --ink-2:#a8b4c6; --line:#2a3a55;
+    --brand:#8fb8ff; --brand-2:#6fa0f0; --accent:#ffb05e; --accent-soft:#3a2a17;
+    --ok:#7fd3a0; --ok-soft:#173225; --bad:#ff9a9a; --bad-soft:#3a1c1c;
+    --code-bg:#0a111c; --code-ink:#e6edf7; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d1420; --surface:#152032; --surface-2:#1b2940; --ink:#e7edf6; --ink-2:#a8b4c6; --line:#2a3a55;
+  --brand:#8fb8ff; --brand-2:#6fa0f0; --accent:#ffb05e; --accent-soft:#3a2a17;
+  --ok:#7fd3a0; --ok-soft:#173225; --bad:#ff9a9a; --bad-soft:#3a1c1c;
+  --code-bg:#0a111c; --code-ink:#e6edf7; --shadow:none;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-text-size-adjust:100%}
+img{max-width:100%;height:auto;display:block;border-radius:12px}
+a{color:var(--brand-2)}
+h1,h2,h3{line-height:1.2;margin:0 0 .6em}
+h2{font-size:clamp(1.45rem,1.1rem + 1.4vw,2.1rem);color:var(--brand)}
+h3{font-size:1.08rem;margin-top:1.2em}
+p{margin:0 0 .9em}
+ul,ol{margin:0 0 1em;padding-left:1.3em}
+li{margin:.25em 0}
+strong{color:var(--ink)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+
+/* Barra superior */
+.topbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:12px;height:56px}
+.topbar .brand{font-weight:700;color:var(--brand);text-decoration:none;white-space:nowrap}
+.topbar nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+.topbar nav::-webkit-scrollbar{display:none}
+.topbar nav a{white-space:nowrap;text-decoration:none;color:var(--ink-2);font-size:.92rem;padding:6px 10px;border-radius:999px}
+.topbar nav a:hover,.topbar nav a.on{background:var(--surface-2);color:var(--ink)}
+.btn{font:inherit;font-size:.9rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 12px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--brand-2)}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#0d1420}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.primary{color:#0d1420}}
+
+/* Portada */
+.hero{padding:56px 0 32px}
+.hero .kicker{display:inline-block;font-size:.85rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.hero h1{font-size:clamp(2.2rem,1.4rem + 4vw,4rem);color:var(--brand);margin-bottom:.2em}
+.hero .sub{font-size:clamp(1.1rem,1rem + .6vw,1.4rem);color:var(--ink-2);margin-bottom:1.4em}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--ink-2);font-size:.95rem}
+.hero .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:32px 0 8px;padding:0;list-style:none}
+.toc a{display:block;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;color:var(--ink);height:100%}
+.toc a:hover{border-color:var(--brand-2)}
+.toc .n{display:block;font-size:.8rem;font-weight:700;color:var(--accent)}
+
+/* Diapositivas */
+.slide{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(20px,3vw,40px);margin:20px 0}
+.slide.divider{background:var(--brand);border-color:var(--brand);color:#fff;text-align:left;padding:clamp(28px,5vw,56px)}
+.slide.divider .num{font-size:clamp(3rem,2rem + 5vw,6rem);font-weight:800;line-height:1;color:var(--accent);opacity:.95}
+.slide.divider h2{color:#fff;font-size:clamp(1.8rem,1.3rem + 2.5vw,3rem);margin:.15em 0 .2em}
+.slide.divider p{color:#dbe6f7;margin:0;max-width:60ch}
+:root[data-theme="dark"] .slide.divider{background:#1b3358;border-color:#2a4a7a}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .slide.divider{background:#1b3358;border-color:#2a4a7a}}
+.lead{font-size:1.1rem;color:var(--ink-2)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-img{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:28px;align-items:center}
+@media (max-width:760px){.grid-2,.grid-3,.grid-img{grid-template-columns:1fr}}
+.card{background:var(--surface-2);border-radius:12px;padding:16px 18px}
+.card h3{margin-top:0}
+.card.ok{background:var(--ok-soft)} .card.ok h3{color:var(--ok)}
+.card.bad{background:var(--bad-soft)} .card.bad h3{color:var(--bad)}
+.myth{font-size:1.15rem;font-weight:600;background:var(--surface-2);border-left:4px solid var(--accent);border-radius:8px;padding:16px 18px}
+.tag{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.quote{border-left:4px solid var(--brand-2);padding:6px 0 6px 18px;margin:1em 0;font-size:1.1rem;color:var(--ink-2);font-style:italic}
+.def{margin:0 0 1.2em}
+.def .src{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--accent)}
+.ba{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:.4em 0 1em}
+.ba dt{font-weight:700;color:var(--ink-2)}
+.ba dd{margin:0}
+.ba dt.t{color:var(--accent)}
+.note{font-size:.88rem;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:10px;margin-top:14px}
+.new{display:inline-block;font-size:.72rem;font-weight:700;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:2px 8px;vertical-align:middle;margin-left:6px;text-transform:uppercase;letter-spacing:.03em}
+figure{margin:0}
+figcaption{font-size:.86rem;color:var(--ink-2);margin-top:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:.3em 0 .8em;padding:0;list-style:none}
+.chips li{margin:0;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.9rem}
+pre.prompt{background:var(--code-bg);color:var(--code-ink);border-radius:12px;padding:16px 18px;white-space:pre-wrap;word-break:break-word;font:14.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:0 0 1em;position:relative}
+.copy{position:absolute;top:8px;right:8px;font-size:.78rem;padding:4px 10px;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.timeline{list-style:none;padding:0;margin:0;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 12px 20px;margin:0}
+.timeline li::before{content:"";position:absolute;left:-7px;top:.45em;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.timeline b{color:var(--brand)}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps>li{counter-increment:s;position:relative;padding-left:40px;margin:.6em 0}
+.steps>li::before{content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;font-weight:700;font-size:.9rem;display:grid;place-items:center}
+:root[data-theme="dark"] .steps>li::before{color:#0d1420}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .steps>li::before{color:#0d1420}}
+.video{display:flex;gap:16px;align-items:center;text-decoration:none;color:inherit;background:var(--surface-2);border-radius:12px;padding:12px;max-width:520px}
+.video img{width:160px;border-radius:8px}
+.video:hover{outline:2px solid var(--brand-2)}
+
+/* Esquemas dibujados */
+.nest{display:grid;place-items:center;aspect-ratio:1;max-width:340px;margin:0 auto;border-radius:50%;background:#143a6b;color:#fff;text-align:center;padding:6%}
+.nest>div{width:100%;aspect-ratio:1;border-radius:50%;background:#1f5ba8;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:14%}
+.nest>div>div{width:62%;aspect-ratio:1;border-radius:50%;background:#3d8be0;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-top:6%}
+.nest b{font-size:.95rem;letter-spacing:.02em}
+.nest small{font-size:.72rem;opacity:.9;max-width:80%;line-height:1.3}
+.nest .top{margin-top:-2%;margin-bottom:4%}
+.cpu-gpu{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.chip{background:var(--surface-2);border-radius:12px;padding:16px;text-align:center}
+.cores{display:grid;gap:6px;margin:12px auto;width:max-content}
+.cores i{display:block;width:26px;height:26px;border-radius:5px}
+.cores.cpu{grid-template-columns:repeat(2,56px)}
+@media (max-width:600px){.topbar .brand{display:none}.topbar .btn{padding:6px 10px}.cores.gpu{grid-template-columns:repeat(8,1fr)}} .cores.cpu i{width:56px;height:40px;background:#e8a72b}
+.cores.gpu{grid-template-columns:repeat(10,1fr);gap:3px} .cores.gpu i{width:14px;height:14px;background:#1f5ba8}
+
+/* Modo presentación */
+.progress{display:none}
+body.present{overflow:hidden;background:var(--bg)}
+body.present .topbar,body.present .hero,body.present footer,body.present .bloque-head{display:none}
+body.present main .slide{display:none}
+body.present main .slide.active{display:block;position:fixed;inset:0;margin:0;border-radius:0;border:0;overflow:auto;padding:clamp(24px,5vh,64px) clamp(20px,7vw,120px);font-size:clamp(17px,1.25vw + .45vh,26px)}
+body.present main .slide.active>*{max-width:1400px;margin-left:auto;margin-right:auto}
+body.present main .slide.divider.active{display:flex;flex-direction:column;justify-content:center}
+body.present main .slide.divider.active>*{margin-left:0;margin-right:0}
+body.present .progress{display:block;position:fixed;left:0;bottom:0;height:4px;background:var(--accent);z-index:40;transition:width .2s}
+body.present .pctrl{display:flex}
+.pctrl{display:none;position:fixed;right:14px;bottom:14px;z-index:41;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 6px;font-size:.85rem;color:var(--ink-2);opacity:.6}
+.pctrl:hover{opacity:1}
+.pctrl button{font:inherit;border:0;background:transparent;color:var(--ink);cursor:pointer;padding:4px 8px;border-radius:999px}
+.pctrl button:hover{background:var(--surface-2)}
+
+footer{border-top:1px solid var(--line);margin-top:48px;padding:28px 0 48px;color:var(--ink-2);font-size:.92rem}
+footer a{color:var(--brand-2)}
+.bloque-head{height:0}
+@media print{.topbar,.pctrl,.actions,.copy{display:none!important}.slide{break-inside:avoid;box-shadow:none}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#inicio">IA · Marketing</a>
+    <nav aria-label="Secciones">
+      <a href="#b1">Introducción</a>
+      <a href="#b2">IA y marketing</a>
+      <a href="#b3">Ética</a>
+      <a href="#b4">Herramientas</a>
+      <a href="#b5">Taller</a>
+    </nav>
+    <button class="btn" id="themeBtn" type="button" aria-label="Cambiar tema claro u oscuro">◐</button>
+    <button class="btn primary" id="presentBtn" type="button">▶ Presentar</button>
+  </div>
+</header>
+
+<div class="wrap hero" id="inicio">
+  <span class="kicker">Máster Universitario en Dirección de Marketing Digital y Social</span>
+  <h1>Introducción a la IA</h1>
+  <p class="sub">…con ayuda de la IA. Qué es, cómo aprende y qué está cambiando en el marketing.</p>
+  <div class="meta">
+    <span><strong>José Miguel Mota Macías</strong> · <a href="mailto:josemiguel.mota@uca.es">josemiguel.mota@uca.es</a></span>
+    <span>Facultad de Ciencias Sociales y de la Comunicación · Universidad de Cádiz</span>
+  </div>
+  <div class="actions">
+    <button class="btn primary" type="button" data-present>▶ Ver como presentación</button>
+    <a class="btn" href="#b5">Ir al taller práctico</a>
+  </div>
+  <ol class="toc">
+    <li><a href="#b1"><span class="n">01</span>Introducción: qué es la IA y cómo aprende</a></li>
+    <li><a href="#b2"><span class="n">02</span>IA y marketing</a></li>
+    <li><a href="#b3"><span class="n">03</span>IA y ética</a></li>
+    <li><a href="#b4"><span class="n">04</span>Herramientas</a></li>
+    <li><a href="#b5"><span class="n">05</span>Taller: Jerez «pet-friendly»</a></li>
+  </ol>
+</div>
+
+<main class="wrap">
+
+<!-- Portada (solo visible en modo presentación) -->
+<section class="slide divider" id="portada" data-only-present>
+  <div class="num">IA</div>
+  <h2>Introducción a la IA</h2>
+  <p>…con ayuda de la IA</p>
+  <p style="margin-top:1.5em"><strong style="color:#fff">José Miguel Mota Macías</strong> · josemiguel.mota@uca.es<br>Máster Universitario en Dirección de Marketing Digital y Social · Universidad de Cádiz</p>
+</section>
+
+<!-- ============ 01 INTRODUCCIÓN ============ -->
+<div class="bloque-head" id="b1"></div>
+<section class="slide divider">
+  <div class="num">01</div>
+  <h2>Introducción</h2>
+  <p>Qué es la IA, de dónde viene y cómo aprende una máquina.</p>
+</section>
+
+<section class="slide">
+  <h2>Seguro que habéis escuchado…</h2>
+  <div class="grid-3">
+    <p class="myth">«La IA nos va a quitar el trabajo».</p>
+    <p class="myth">«No puedes usar la IA para tu investigación».</p>
+    <p class="myth">«Con la IA ya no tengo que hacer nada».</p>
+  </div>
+  <p class="lead">Las tres frases son, como mínimo, inexactas. Para opinar con criterio primero hay que saber de qué hablamos.</p>
+</section>
+
+<section class="slide">
+  <h2>¿Pero sabemos qué es la IA?</h2>
+  <p class="lead">¿O pensamos que todo es ChatGPT?</p>
+  <p>ChatGPT, Gemini o Claude son solo una parte —la más visible— de la IA. El filtro de spam de vuestro correo, las recomendaciones de Netflix, el precio de un vuelo o el anuncio que veis en Instagram también son IA, y llevan años funcionando.</p>
+</section>
+
+<section class="slide">
+  <h2>¿Qué es la IA?</h2>
+  <div class="def">
+    <div class="src">Real Academia Española</div>
+    <p>Disciplina científica que se ocupa de crear programas informáticos que ejecutan operaciones comparables a las que realiza la mente humana, como el aprendizaje o el razonamiento lógico.</p>
+  </div>
+  <div class="def">
+    <div class="src">Reglamento europeo de IA (UE 2024/1689), art. 3</div>
+    <p>Un sistema basado en una máquina, diseñado para funcionar con distintos niveles de <strong>autonomía</strong>, que puede mostrar capacidad de <strong>adaptación</strong> tras su despliegue y que, para objetivos explícitos o implícitos, <strong>infiere</strong> a partir de la información de entrada que recibe cómo generar resultados —predicciones, contenidos, recomendaciones o decisiones— que pueden influir en entornos físicos o virtuales.</p>
+  </div>
+  <p class="note">La presentación original citaba la definición del Grupo de Expertos de Alto Nivel de la Comisión Europea (2019). Hoy la definición de referencia en Europa es la del Reglamento de IA, que es ley.</p>
+</section>
+
+<section class="slide">
+  <h2>Pero esto no es algo de ayer</h2>
+  <div class="grid-img">
+    <figure>
+      <img src="assets/ia-marketing/turing.jpg" alt="Retrato de Alan Turing junto a una máquina de cálculo electromecánica" loading="lazy">
+      <figcaption>Alan Turing (1912–1954)</figcaption>
+    </figure>
+    <ul class="timeline">
+      <li><b>1936</b> · Turing describe su «máquina universal».</li>
+      <li><b>1950</b> · Turing publica <em>Computing Machinery and Intelligence</em> y propone el «juego de la imitación» (test de Turing).</li>
+      <li><b>1956</b> · Conferencia de Dartmouth: nace el término «inteligencia artificial».</li>
+      <li><b>1997</b> · Deep Blue gana a Kaspárov al ajedrez.</li>
+      <li><b>2012</b> · Las redes neuronales profundas entrenadas con GPU arrasan en reconocimiento de imágenes.</li>
+      <li><b>2017</b> · Google presenta la arquitectura <em>Transformer</em>, base de los LLM actuales.</li>
+      <li><b>2022</b> · Sale ChatGPT: la IA generativa llega al gran público.</li>
+      <li><b>2025–2026</b> · Modelos que «razonan», multimodales y <strong>agentes</strong> que actúan por nosotros. <span class="new">nuevo</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>La idea de Turing</h2>
+  <p class="lead">Alan Turing imaginó una máquina que podía <strong>leer símbolos en una cinta</strong> y, siguiendo un <strong>conjunto de reglas</strong>, podía <strong>simular</strong> cualquier algoritmo.</p>
+  <p class="quote">Si una tarea (incluso una creativa o estratégica) puede descomponerse en un conjunto de reglas y datos, una máquina puede ejecutarla. La IA moderna es la evolución de esta idea.</p>
+</section>
+
+<section class="slide">
+  <h2>La jerarquía de la IA</h2>
+  <div class="grid-img">
+    <div class="nest" role="img" aria-label="Tres círculos concéntricos: la inteligencia artificial contiene el machine learning, que contiene el deep learning">
+      <div>
+        <b class="top">INTELIGENCIA ARTIFICIAL</b>
+        <b>MACHINE LEARNING</b>
+        <div><b>DEEP<br>LEARNING</b></div>
+      </div>
+    </div>
+    <ol>
+      <li><strong>Inteligencia artificial (IA):</strong> cualquier programa o máquina que imita la inteligencia humana para realizar tareas (tomar decisiones, reconocer objetos, entender el lenguaje).</li>
+      <li><strong>Machine learning (ML, aprendizaje automático):</strong> una forma de lograr IA. En lugar de programar reglas fijas («SI un cliente gasta más de 100 €, ENVIAR cupón»), el sistema aprende de los datos. <strong>«Alimentamos»</strong> a la máquina con miles de ejemplos de compra y ella descubre los patrones que llevan a una segunda compra.</li>
+      <li><strong>Deep learning (DL, aprendizaje profundo):</strong> una técnica avanzada de machine learning que usa <strong>redes neuronales</strong> para resolver problemas muy complejos.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>«Alimentamos»</h2>
+  <p class="lead">La máquina aprende de los datos, pero no toda la «enseñanza» es igual. Según el problema que queráis resolver (y los datos que tengáis), usaréis uno de estos tres métodos.</p>
+  <div class="grid-3">
+    <a class="card" href="#supervisado" style="text-decoration:none;color:inherit"><span class="tag">Supervisado</span><h3>🐱 «Esto es un gato»</h3><p>Aprende con ejemplos etiquetados.</p></a>
+    <a class="card" href="#no-supervisado" style="text-decoration:none;color:inherit"><span class="tag">No supervisado</span><h3>🧩 «Organiza esto»</h3><p>Encuentra grupos y patrones por su cuenta.</p></a>
+    <a class="card" href="#refuerzo" style="text-decoration:none;color:inherit"><span class="tag">Por refuerzo</span><h3>🏆 Recompensas</h3><p>Aprende por prueba y error.</p></a>
+  </div>
+</section>
+
+<section class="slide" id="supervisado">
+  <h2>Aprendizaje supervisado</h2>
+  <div class="grid-img">
+    <figure>
+      <img src="assets/ia-marketing/gato.jpg" alt="Foto de un gato blanco con manchas negras" loading="lazy" style="max-width:280px">
+      <figcaption>Etiqueta: «gato»</figcaption>
+    </figure>
+    <div>
+      <p>Es el tipo más común. «Supervisamos» a la IA dándole datos ya <strong>etiquetados</strong> con la respuesta correcta: le damos el problema y la solución para que aprenda la relación.</p>
+      <h3>Analogía</h3>
+      <p>Le enseñáis a la IA una imagen (el problema) y en el reverso está la palabra «gato» (la etiqueta o solución).</p>
+      <h3>Ejemplos de marketing</h3>
+      <ul>
+        <li><strong>Clasificación (spam / no spam):</strong> entrenáis el modelo con 50 000 correos etiquetados como «spam» o «importante». Aprende los patrones y clasifica los nuevos.</li>
+        <li><strong>Análisis de sentimiento básico:</strong> le dais 1000 publicaciones etiquetadas como «positiva», «negativa» o «neutra» y aprende a clasificar las siguientes.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="no-supervisado">
+  <h2>Aprendizaje no supervisado</h2>
+  <p class="lead">Le damos a la IA un montón de datos «crudos» y le pedimos que encuentre <strong>patrones ocultos</strong> o estructuras por su cuenta.</p>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Analogía</h3>
+      <p>Darle a alguien una caja con 10 000 piezas de LEGO de todas las formas y colores y decirle: «Organiza esto». Empezará a crear grupos lógicos —«piezas rojas», «piezas cuadradas», «ruedas», «muñecos»— sin que nadie le diga qué grupos crear.</p>
+    </div>
+    <div class="card">
+      <h3>Ejemplo en marketing</h3>
+      <p>Le dais todos vuestros datos de clientes (demografía, historial de compra, navegación) y los agrupa. El resultado son <strong>buyer personas definidos por datos</strong>, no por intuición.</p>
+      <p>Ej.: «Grupo 1: cazadores de ofertas de fin de semana», «Grupo 2: clientes VIP de alto valor», «Grupo 3: clientes en riesgo de abandono».</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="refuerzo">
+  <h2>Aprendizaje por refuerzo</h2>
+  <p class="lead">Aprendizaje por prueba y error, como entrenar a un perro. La IA (el «agente») toma una acción; si es buena, recibe una recompensa; si es mala, un castigo o nada. Su objetivo es <strong>maximizar la recompensa total a largo plazo</strong>.</p>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Analogía</h3>
+      <p>Un perro que aprende a «dar la patita» a cambio de una galleta. 🐕</p>
+    </div>
+    <div class="card">
+      <h3>Ejemplos en marketing</h3>
+      <ul>
+        <li><strong>Precios dinámicos</strong> (VTC, aerolíneas): sube 1 € → la gente sigue comprando → «¡recompensa!, sube otro». Sube 5 € → nadie compra → «¡castigo!, baja el precio».</li>
+        <li><strong>Personalización web en tiempo real:</strong> la IA prueba el banner A → no hay clic. Con otro usuario parecido prueba el B → clic (¡recompensa!). Aprende qué mostrar en tiempo real.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">Hoy el refuerzo también se usa para «educar» a los chatbots: personas valoran sus respuestas y el modelo aprende de esas valoraciones (RLHF).</p>
+</section>
+
+<section class="slide">
+  <h2>Redes neuronales</h2>
+  <div class="grid-img">
+    <figure>
+      <img src="assets/ia-marketing/red-neuronal.jpg" alt="Esquema de red neuronal con capa de entrada, capa oculta y capa de salida conectadas" loading="lazy">
+      <figcaption>Entradas → capas ocultas → salidas</figcaption>
+    </figure>
+    <div>
+      <p>El deep learning usa <strong>redes neuronales</strong>, inspiradas en la estructura del cerebro: «neuronas» interconectadas en capas. Cada conexión tiene un peso que se ajusta durante el entrenamiento.</p>
+      <p>El «deep» (profundo) significa que tiene <strong>muchas capas</strong>: las primeras detectan rasgos simples y las siguientes los combinan en conceptos cada vez más complejos.</p>
+      <a class="video" href="https://www.youtube.com/watch?v=M1lu8uyS_A4" target="_blank" rel="noopener">
+        <img src="assets/ia-marketing/video-redes.jpg" alt="" loading="lazy">
+        <span><strong>Vídeo: ¿qué es una red neuronal?</strong><br><small>YouTube · se abre en otra pestaña</small></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>GPU</h2>
+  <div class="grid-2">
+    <div>
+      <p><strong>GPU</strong> (<em>Graphics Processing Unit</em>, unidad de procesamiento gráfico). Una red neuronal son millones de cálculos sencillos (sumas y multiplicaciones) que deben hacerse <strong>en paralelo</strong>.</p>
+      <p>Las GPU, pensadas para videojuegos, resultaron perfectas para eso. Hoy son esenciales para entrenar y usar los modelos de IA, y por eso NVIDIA se ha convertido en una de las empresas más valiosas del mundo.</p>
+    </div>
+    <div class="cpu-gpu" role="img" aria-label="Comparación: una CPU tiene pocos núcleos potentes que trabajan en secuencia; una GPU tiene miles de núcleos sencillos que trabajan en paralelo">
+      <div class="chip"><strong>CPU</strong><div class="cores cpu"><i></i><i></i><i></i><i></i></div><small>Pocos núcleos potentes.<br>Tareas en secuencia.</small></div>
+      <div class="chip"><strong>GPU</strong><div class="cores gpu"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><small>Miles de núcleos sencillos.<br>Tareas en paralelo.</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Tipos de IA</h2>
+  <div class="grid-2">
+    <div>
+      <h3>Según su capacidad</h3>
+      <dl>
+        <dt><strong>IA estrecha (<em>narrow AI</em>)</strong></dt>
+        <dd>Diseñada para una tarea concreta o un abanico limitado de tareas. <strong>Toda la IA que existe hoy es de este tipo</strong>, aunque los grandes modelos sean cada vez más versátiles.</dd>
+        <dt style="margin-top:.8em"><strong>IA general (AGI)</strong></dt>
+        <dd>Aspira a realizar cualquier tarea intelectual que pueda hacer una persona. Todavía no existe y su llegada es objeto de debate.</dd>
+      </dl>
+    </div>
+    <div>
+      <h3>Según su función</h3>
+      <ul>
+        <li><strong>Generativa:</strong> crea contenido (texto, imágenes, música, vídeo).</li>
+        <li><strong>Predictiva:</strong> pronostica eventos o tendencias a partir de datos históricos.</li>
+        <li><strong>Discriminativa:</strong> distingue entre clases o categorías.</li>
+        <li><strong>Analítica:</strong> procesa e interpreta datos complejos para apoyar decisiones.</li>
+        <li><strong>Estadística:</strong> usa modelos estadísticos para predecir, decidir o clasificar.</li>
+        <li><strong>Agéntica:</strong> planifica y ejecuta tareas de varios pasos usando herramientas (navegar, rellenar formularios, comprar). <span class="new">nuevo</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>LLM: modelos grandes de lenguaje</h2>
+  <p>Un <strong>LLM</strong> (<em>Large Language Model</em>) es un tipo de IA basado en deep learning, entrenado con GPU sobre cantidades enormes de texto (webs, libros, artículos, código).</p>
+  <p><strong>Su función principal es sencilla: predecir la siguiente palabra</strong> (en realidad, el siguiente fragmento o <em>token</em>). Al hacerlo miles de millones de veces «aprende» gramática, contexto, datos y cierta capacidad de razonamiento.</p>
+  <ul class="chips" aria-label="Ejemplos de LLM"><li>ChatGPT (OpenAI)</li><li>Gemini (Google)</li><li>Claude (Anthropic)</li><li>Copilot (Microsoft)</li><li>Llama (Meta)</li><li>Mistral</li><li>DeepSeek</li></ul>
+  <h3>Hoy los modelos son multimodales</h3>
+  <ul>
+    <li><strong>Texto a texto:</strong> «Escríbeme tres líneas de anuncio para Instagram sobre…».</li>
+    <li><strong>Texto a imagen:</strong> «Crea una imagen de un perro feliz bebiendo un refresco en la playa, estilo fotorrealista» (Midjourney, ChatGPT, Gemini, Adobe Firefly).</li>
+    <li><strong>Texto a vídeo:</strong> «Un clip de un coche corriendo por el desierto» (Sora, Veo, Runway).</li>
+    <li><strong>Texto a audio:</strong> «Genera una locución cálida que diga…» (ElevenLabs; para música, Suno).</li>
+    <li><strong>Y al revés:</strong> les podéis pasar una foto, un PDF, una hoja de cálculo o un audio y preguntarles por ellos.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <span class="tag">Tipos de modelos generativos · 1/4</span>
+  <h2>Autocodificador variacional (VAE)</h2>
+  <div class="grid-img">
+    <img src="assets/ia-marketing/vae.jpg" alt="Ilustración: una figura mira un paisaje y hace un boceto; otra figura recrea un cuadro a partir del boceto" loading="lazy">
+    <div>
+      <p>Es como un artista que mira un cuadro y <strong>hace rápidamente un boceto</strong> (codificador).</p>
+      <p>Después es capaz de <strong>pintar un cuadro nuevo usando solo ese boceto</strong> (decodificador) como referencia.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">Tipos de modelos generativos · 2/4</span>
+  <h2>Red generativa antagónica (GAN)</h2>
+  <div class="grid-img">
+    <img src="assets/ia-marketing/gan.jpg" alt="Ilustración: un pintor (generador) y un crítico de arte (discriminador) frente a un cuadro; el crítico dice que es falso" loading="lazy">
+    <div>
+      <p>Es una competición entre un <strong>falsificador</strong> (el generador) y un <strong>crítico de arte</strong> (el discriminador).</p>
+      <p>El ciclo se repite hasta que el falsificador consigue <strong>falsificaciones casi perfectas</strong>. Así nacieron los primeros <em>deepfakes</em>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">Tipos de modelos generativos · 3/4</span>
+  <h2>Modelos autorregresivos</h2>
+  <div class="grid-img">
+    <img src="assets/ia-marketing/autorregresivo.jpg" alt="Ilustración: una persona lee un libro rodeada de páginas y bocadillos de texto" loading="lazy">
+    <div>
+      <p>Funcionan como narradores: escuchan el comienzo de una historia y la continúan, <strong>prediciendo lo que viene después</strong> a partir de las palabras anteriores.</p>
+      <p>Es exactamente lo que hacen ChatGPT, Gemini o Claude: son modelos autorregresivos con arquitectura <em>Transformer</em>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">Tipos de modelos generativos · 4/4</span>
+  <h2>Modelos de difusión</h2>
+  <div class="grid-img">
+    <figure>
+      <img src="assets/ia-marketing/difusion.jpg" alt="Diagrama: una foto de un gato se va llenando de ruido hasta ser solo ruido (difusión) y el proceso inverso reconstruye la imagen" loading="lazy">
+      <figcaption>Ida: de la imagen al ruido. Vuelta: del ruido a la imagen.</figcaption>
+    </figure>
+    <div>
+      <p>Funcionan en <strong>dos fases</strong>. Primero el modelo <strong>añade ruido poco a poco</strong> a los datos (difusión).</p>
+      <p>Después aprende el <strong>proceso inverso</strong>: quitar el ruido para reconstruir los datos (reversión).</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">Tipos de modelos generativos</span>
+  <h2>Por eso, cuando generan una imagen nueva…</h2>
+  <div class="grid-2">
+    <figure>
+      <img src="assets/ia-marketing/ruido.jpg" alt="Mancha de colores difuminados sin forma reconocible" loading="lazy">
+      <figcaption>…se parte de una mancha de colores aleatoria…</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/ia-marketing/caballo.jpg" alt="Imagen generada por IA de un caballo azul con gafas de sol rojas en la playa" loading="lazy">
+      <figcaption>…y se va «limpiando» hasta llegar a lo que pide el prompt.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 02 IA Y MARKETING ============ -->
+<div class="bloque-head" id="b2"></div>
+<section class="slide divider">
+  <div class="num">02</div>
+  <h2>IA y marketing</h2>
+  <p>Del «anuncio para todos» al «mensaje para ti».</p>
+</section>
+
+<section class="slide">
+  <h2>La transformación del marketing</h2>
+  <div class="grid-img">
+    <div>
+      <p class="lead">Del «anuncio para todos» al «mensaje para ti».</p>
+      <p>Antes, el marketing se basaba en <strong>la intuición</strong> y los promedios («nuestro cliente medio es una mujer de 30 a 40 años»).</p>
+      <p>La IA permite pasar del <strong>marketing de masas al marketing de segmentos de uno</strong> (hiperpersonalización). Lo cambia todo: cómo encontramos clientes, cómo les hablamos y qué les vendemos.</p>
+    </div>
+    <figure>
+      <img src="assets/ia-marketing/netflix.jpg" alt="Pantalla de inicio de Netflix con filas de carátulas personalizadas" loading="lazy">
+      <figcaption>Cada persona ve un Netflix distinto: hasta las carátulas se eligen para vosotros.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">Gracias al aprendizaje no supervisado</span>
+  <h2>1. Comprensión profunda del cliente</h2>
+  <p class="lead">El fin de la «intuición» para crear un buyer persona.</p>
+  <dl class="ba">
+    <dt>Antes</dt><dd>Creábamos dos o tres buyer personas en una reunión, a partir de nuestra percepción («María, la madre ocupada»).</dd>
+    <dt>Ahora</dt><dd>Usamos <strong>clustering</strong>: alimentamos un modelo con todos los datos de los clientes (compras, clics, ubicación, datos demográficos) y le pedimos «encuentra patrones».</dd>
+    <dt>Resultado</dt><dd>No salen 3 segmentos, salen 15 microsegmentos que nunca habríamos visto. Ej.: «clientes que solo compran de noche, desde el móvil y muy sensibles a los gastos de envío»; «clientes de alto valor que compran cada tres viernes y responden bien a los correos de novedades».</dd>
+    <dt class="t">Cambio</dt><dd>Dejamos de adivinar quiénes son nuestros clientes y empezamos a saberlo por su comportamiento real.</dd>
+  </dl>
+</section>
+
+<section class="slide">
+  <span class="tag">Gracias al aprendizaje supervisado</span>
+  <h2>2. Predecir el futuro</h2>
+  <p class="lead">El marketing pasa de ser reactivo (reaccionar a lo que pasó) a ser predictivo (actuar antes de que pase).</p>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Predicción de abandono (<em>churn</em>)</h3>
+      <dl class="ba">
+        <dt>Antes</dt><dd>«El mes pasado perdimos 1000 clientes».</dd>
+        <dt>Ahora</dt><dd>Un modelo analiza el comportamiento de cada cliente («hace dos semanas que no abre un correo», «su uso de la app ha bajado un 50 %») y da una puntuación de riesgo de abandono.</dd>
+        <dt class="t">Cambio</dt><dd>Actuamos antes de que se vayan: oferta de retención solo a quien tiene un riesgo del 80 % o más.</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <h3>Puntuación de leads (<em>lead scoring</em>)</h3>
+      <dl class="ba">
+        <dt>Antes</dt><dd>Ventas llama a todos los leads por orden de llegada.</dd>
+        <dt>Ahora</dt><dd>Un modelo puntúa cada lead de 1 a 100 según las acciones que predicen una compra («visitó la página de precios» + «empresa de 50 empleados»).</dd>
+        <dt class="t">Cambio</dt><dd>El equipo dedica su tiempo a los leads «calientes» (más de 90) y la eficiencia se dispara.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">Gracias al aprendizaje por refuerzo</span>
+  <h2>3. Optimización en tiempo real</h2>
+  <p class="lead">La IA toma miles de decisiones por segundo para maximizar un objetivo (normalmente, el retorno de la inversión).</p>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Publicidad programática (<em>real-time bidding</em>)</h3>
+      <p>Cuando entráis en una web, en los milisegundos que tarda en cargar se celebra una subasta. Un agente de IA decide cuánto pagar por mostraros <strong>ese</strong> anuncio a <strong>vosotros</strong> en <strong>ese</strong> momento. Su recompensa: que hagáis clic (o compréis).</p>
+      <p><strong>Cambio:</strong> el presupuesto no se gasta «en general»; se optimiza impresión a impresión.</p>
+    </div>
+    <div class="card">
+      <h3>Precios dinámicos</h3>
+      <p>La IA ajusta el precio (vuelos, hoteles, VTC, entradas) en tiempo real según la oferta, la demanda, la hora, el clima o el comportamiento del usuario.</p>
+      <p><strong>Cambio:</strong> se maximizan los ingresos vendiendo al precio óptimo en el momento exacto (con límites legales y de reputación: ver «ética»).</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">Gracias a la IA generativa y los LLM</span>
+  <h2>4. Crear y conversar a escala</h2>
+  <p class="lead">La revolución más reciente: la IA ya no solo analiza, también crea, conversa… y actúa.</p>
+  <div class="grid-2">
+    <div>
+      <h3>Generación de contenido</h3>
+      <dl class="ba">
+        <dt>Antes</dt><dd>Un redactor tarda un día en escribir cinco versiones de un anuncio.</dd>
+        <dt>Ahora</dt><dd>Un LLM genera 50 versiones en segundos, adaptadas a diez segmentos.</dd>
+        <dt class="t">Cambio</dt><dd>El papel humano pasa de «crear desde cero» a <strong>dirigir, editar y curar</strong>. Las pruebas A/B se multiplican.</dd>
+      </dl>
+      <h3>Hiperpersonalización</h3>
+      <dl class="ba">
+        <dt>Antes</dt><dd>Correos con «Hola, [Nombre]».</dd>
+        <dt>Ahora</dt><dd>Un mensaje único por cliente: «Hola, Juan: el mes pasado compraste nuestra chaqueta de running azul. Como este fin de semana va a llover en tu ciudad, quizá te interese el pantalón impermeable a juego…».</dd>
+      </dl>
+    </div>
+    <div>
+      <h3>Chatbots conversacionales</h3>
+      <dl class="ba">
+        <dt>Antes</dt><dd>Chatbots de reglas («pulse 1 para ventas»).</dd>
+        <dt>Ahora</dt><dd>Asistentes que entienden la intención, consultan el historial del cliente y resuelven problemas complejos 24/7.</dd>
+        <dt class="t">Cambio</dt><dd>La atención al cliente se vuelve instantánea y se convierte en un canal de venta.</dd>
+      </dl>
+      <h3>Agentes y búsqueda con IA <span class="new">nuevo</span></h3>
+      <p>Cada vez más gente pregunta a ChatGPT, Gemini o a los resúmenes con IA de Google en vez de hacer clic en enlaces, y ya hay agentes que comparan y compran por el usuario. Para las marcas, el reto pasa de «salir primero en Google» a <strong>ser la respuesta que da la IA</strong> (lo que algunos llaman GEO, <em>generative engine optimization</em>).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 ÉTICA ============ -->
+<div class="bloque-head" id="b3"></div>
+<section class="slide divider">
+  <div class="num">03</div>
+  <h2>IA y ética</h2>
+  <p>Un nuevo poder conlleva una nueva responsabilidad.</p>
+</section>
+
+<section class="slide">
+  <h2>Ética y límites de la IA en el marketing</h2>
+  <div class="grid-img">
+    <div>
+      <p class="lead">La IA no es una «caja negra mágica». Sus decisiones (o las que nos recomienda) tienen consecuencias reales.</p>
+      <p>Usar mal la IA no solo es «poco ético»: puede destruir la reputación de una marca o acarrear multas millonarias.</p>
+      <div class="card" style="margin-top:1em">
+        <h3>El marco legal en Europa <span class="new">actualizado</span></h3>
+        <ul style="margin-bottom:0">
+          <li><strong>RGPD</strong> (2018): datos personales, consentimiento, minimización.</li>
+          <li><strong>Reglamento de IA</strong> (UE 2024/1689): desde febrero de 2025 prohíbe las prácticas manipuladoras y obliga a las empresas a formar a su personal en IA; desde agosto de 2026 se aplican, entre otras, las obligaciones de transparencia (avisar de que se habla con una IA y señalar el contenido sintético). Algunos plazos están en revisión por el paquete «Ómnibus Digital».</li>
+          <li><strong>Ley de Servicios Digitales</strong> (DSA): prohíbe la publicidad dirigida a menores basada en perfiles y la segmentación con datos sensibles en las grandes plataformas.</li>
+        </ul>
+      </div>
+    </div>
+    <img src="assets/ia-marketing/etica.jpg" alt="Una persona trabaja en un ordenador junto a un robot humanoide" loading="lazy">
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">Riesgo 1</span>
+  <h2>Privacidad de datos y el factor «creepy»</h2>
+  <p><strong>El problema:</strong> la IA de marketing tiene «hambre de datos». Para predecir y personalizar necesita saberlo todo: qué compráis, dónde hacéis clic, cuánto tiempo miráis un producto, incluso por dónde os movéis.</p>
+  <p><strong>El límite legal:</strong> el RGPD prohíbe recoger datos sin una base legal (normalmente, consentimiento explícito), obliga a la «minimización» (recoger solo lo necesario) y reconoce el derecho de supresión («derecho al olvido»).</p>
+  <p><strong>El límite de marketing:</strong> hay una línea muy fina entre personalización útil y persecución inquietante.</p>
+  <div class="grid-2">
+    <div class="card ok"><h3>Útil</h3><p>«Vemos que compras café cada 30 días. ¿Quieres programar el envío?».</p></div>
+    <div class="card bad"><h3>«Creepy»</h3><p>«Por tu geolocalización sabemos que esta semana has pasado por tres cafeterías de la competencia. Te ofrecemos un 50 % si vuelves».</p></div>
+  </div>
+  <p><strong>Caso clásico:</strong> según contó <em>The New York Times</em> en 2012, el modelo predictivo de la cadena Target dedujo que una adolescente estaba embarazada antes que su familia, por sus cambios de compra (loción sin perfume, vitaminas). <a href="https://medium.com/academe/esto-no-es-otra-historia-aburrida-de-big-data-caso-target-predicci%C3%B3n-del-embarazo-fe1bdc4febf4" target="_blank" rel="noopener">Leer el caso</a>.</p>
+</section>
+
+<section class="slide">
+  <span class="tag">Riesgo 2</span>
+  <h2>Sesgo algorítmico y discriminación</h2>
+  <p class="lead">El riesgo más peligroso y sutil de la IA.</p>
+  <p><strong>El problema:</strong> la IA aprende de datos históricos. Si esos datos reflejan prejuicios (racismo, sexismo, edadismo), la IA no solo los aprende: los <strong>amplifica y automatiza</strong> a gran escala.</p>
+  <p class="quote">«Bias in, bias out»: si entra prejuicio, sale prejuicio.</p>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Publicidad excluyente</h3>
+      <p>Un algoritmo de anuncios aprende que los empleos directivos o técnicos reciben más clics de hombres y deja de enseñárselos a mujeres. Ocurrió con anuncios de empleo STEM (Lambrecht y Tucker, 2019) y llevó a Meta a cambiar su sistema de anuncios de vivienda tras un acuerdo con el Gobierno de EE. UU. en 2022.</p>
+    </div>
+    <div class="card">
+      <h3>Segmentación injusta</h3>
+      <p>Un banco entrena un modelo con 30 años de datos en los que las mujeres recibían menos crédito; el modelo «aprende» que ser mujer es un riesgo. En 2019 la Apple Card fue investigada por ofrecer menos límite a mujeres: el regulador no halló discriminación ilegal (2021), pero sí señaló la falta de transparencia para explicar las decisiones.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">Riesgo 3</span>
+  <h2>Transparencia, manipulación y «cajas negras»</h2>
+  <p><strong>El problema:</strong> muchos modelos de deep learning son «cajas negras»: sabemos qué datos entran y qué decisión sale, pero no podemos explicar fácilmente por qué.</p>
+  <p><strong>Transparencia:</strong> ¿debe saber el cliente que habla con un chatbot y no con una persona? Sí. Ocultarlo es engañoso y, con el Reglamento europeo de IA, obligatorio avisar.</p>
+  <h3>De la persuasión a la manipulación</h3>
+  <div class="grid-2">
+    <div class="card ok"><h3>Persuasión (aceptable)</h3><p>«Quedan 10 unidades» (si es verdad).</p></div>
+    <div class="card bad"><h3>Manipulación (inaceptable y prohibida)</h3><p>Un modelo detecta por vuestra navegación y la hora que sois «compradores compulsivos en un momento de ansiedad» y solo entonces os muestra un precio inflado con una cuenta atrás falsa. Explotar vulnerabilidades así está prohibido por el art. 5 del Reglamento de IA.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">Riesgo 4</span>
+  <h2>«Alucinaciones» y responsabilidad</h2>
+  <p><strong>El problema:</strong> los LLM están diseñados para sonar plausibles, no para ser veraces. Predicen la siguiente palabra y a veces inventan hechos, cifras o fuentes de forma muy convincente: es lo que se llama «alucinación». Los modelos actuales alucinan menos, pero siguen haciéndolo.</p>
+  <p class="quote">La IA generativa es un becario con muchísimas ganas, increíblemente rápido… pero que se inventa parte de lo que dice.</p>
+  <p><strong>Caso real — el chatbot de Air Canada (2024):</strong> un cliente preguntó al chatbot de la aerolínea por las tarifas por duelo. El chatbot se inventó una política que no existía; el cliente compró el billete confiando en ella. La aerolínea se negó a cumplirla, el cliente reclamó y un tribunal de Columbia Británica obligó a Air Canada a pagar: la empresa responde de lo que dice su chatbot.</p>
+  <div class="card bad"><h3>La lección para el marketing</h3><p style="margin:0"><strong>Vosotros sois los responsables de lo que publica vuestra IA.</strong> Nunca uséis un texto, una imagen o un dato generado por IA sin que una persona lo revise, lo verifique y lo edite.</p></div>
+</section>
+
+<!-- ============ 04 HERRAMIENTAS ============ -->
+<div class="bloque-head" id="b4"></div>
+<section class="slide divider">
+  <div class="num">04</div>
+  <h2>Herramientas</h2>
+  <p>Un mapa por usos. Las herramientas cambian cada pocos meses; los conceptos que hay detrás, no.</p>
+</section>
+
+<section class="slide">
+  <span class="tag">1 · Investigación y estrategia</span>
+  <h2>Escucha social y tendencias</h2>
+  <ul class="chips"><li>Brandwatch</li><li>Talkwalker</li><li>Semrush</li><li>Google Trends</li></ul>
+  <p><strong>Qué hacen:</strong> rastrean millones de publicaciones en redes, blogs y foros para deciros de qué habla la gente y cómo se siente (análisis de sentimiento).</p>
+  <p><strong>Concepto de IA:</strong> deep learning de procesamiento del lenguaje natural para entender el contexto y hasta el sarcasmo (que «brutal» puede ser positivo), y aprendizaje no supervisado para agrupar conversaciones en temas que no habíais visto.</p>
+</section>
+
+<section class="slide">
+  <span class="tag">1 · Investigación y estrategia</span>
+  <h2>Investigación de mercado «al estilo académico»</h2>
+  <ul class="chips"><li>Elicit</li><li>Consensus</li><li>NotebookLM</li><li>Modo «investigación en profundidad» de ChatGPT, Gemini o Claude</li><li>Perplexity</li></ul>
+  <p><strong>Qué hacen:</strong> en lugar de buscar artículos uno a uno, les preguntáis «¿cuáles son las barreras de compra más habituales en el comercio electrónico de moda sostenible?». Leen estudios e informes y devuelven una respuesta resumida <strong>con fuentes</strong>.</p>
+  <p><strong>Ojo:</strong> abrid siempre las fuentes y comprobad que dicen lo que la IA afirma. Son las mismas herramientas que se usan en investigación científica, con los mismos riesgos.</p>
+</section>
+
+<section class="slide">
+  <span class="tag">2 · Creación de contenido (IA generativa)</span>
+  <h2>Texto, imagen y vídeo</h2>
+  <div class="grid-3">
+    <div class="card">
+      <h3>Texto (copy, SEO, correo)</h3>
+      <ul class="chips"><li>ChatGPT</li><li>Gemini</li><li>Claude</li><li>Copilot</li><li>Jasper</li></ul>
+      <p>Entradas de blog, 50 variantes de un anuncio, guiones, textos de landing. <em>Concepto:</em> LLM.</p>
+    </div>
+    <div class="card">
+      <h3>Imagen (publicidad, redes)</h3>
+      <ul class="chips"><li>Midjourney</li><li>ChatGPT</li><li>Gemini</li><li>Adobe Firefly</li><li>Canva</li></ul>
+      <p>Producto, moodboards y visuales a partir de un prompt. Firefly se entrena con imágenes con licencia y se vende como «segura para uso comercial».</p>
+    </div>
+    <div class="card">
+      <h3>Vídeo y audio <span class="new">nuevo</span></h3>
+      <ul class="chips"><li>Veo</li><li>Sora</li><li>Runway</li><li>ElevenLabs</li><li>Suno</li></ul>
+      <p>Spots cortos, locuciones y música. Recordad: el contenido sintético realista debe señalarse como tal.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">3 · Activación y personalización</span>
+  <h2>Plataformas de publicidad y CRM</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Publicidad: la gran IA</h3>
+      <ul class="chips"><li>Meta Advantage+</li><li>Google Performance Max</li><li>Google AI Max</li></ul>
+      <p>Ya no son plataformas manuales: son «cajas negras» de IA. El profesional ya no segmenta «mujeres de 25 a 30 que viven en Madrid»; le da a la IA (1) el objetivo, (2) el presupuesto y (3) imágenes y textos, y cada vez más la propia plataforma genera las variantes.</p>
+      <p><em>Concepto:</em> optimización por refuerzo. Prueba millones de combinaciones anuncio-audiencia-hora y aprende cuál vende más barato.</p>
+    </div>
+    <div class="card">
+      <h3>Correo y CRM</h3>
+      <ul class="chips"><li>HubSpot (Breeze)</li><li>Salesforce (Agentforce)</li></ul>
+      <ul>
+        <li><strong>Predicción:</strong> qué clientes van a abandonar o qué lead está más caliente (supervisado).</li>
+        <li><strong>Optimización:</strong> la mejor hora de envío para cada suscriptor (refuerzo).</li>
+        <li><strong>Generación:</strong> redactan el correo de seguimiento (LLM).</li>
+        <li><strong>Agentes:</strong> atienden, cualifican leads y agendan reuniones solos. <span class="new">nuevo</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">4 · Análisis y productividad</span>
+  <h2>Análisis de datos en lenguaje natural</h2>
+  <ul class="chips"><li>ChatGPT (análisis de datos)</li><li>Gemini en Google Sheets</li><li>Copilot en Excel</li><li>Julius AI</li></ul>
+  <p><strong>Qué hacen:</strong> subís un CSV o un Excel («Ventas_T3.csv») y pedís: «Dime los tres productos más vendidos por región y haz un gráfico de barras».</p>
+  <p><strong>Concepto de IA:</strong> LLM que escriben y ejecutan código (Python) por debajo para hacer el análisis.</p>
+  <p class="note">Comprobad siempre un par de cifras a mano: si la IA ha leído mal una columna, el gráfico saldrá precioso… y equivocado.</p>
+</section>
+
+<section class="slide">
+  <span class="tag">5 · Mis herramientas</span>
+  <h2>Las que uso a diario</h2>
+  <div class="grid-3">
+    <div class="card">
+      <h3><a href="https://gamma.app" target="_blank" rel="noopener">Gamma</a></h3>
+      <p>Presentaciones, documentos y webs a partir de un texto o un esquema.</p>
+    </div>
+    <div class="card">
+      <h3><a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a></h3>
+      <p>Subís vuestras fuentes (PDF, webs, vídeos) y le preguntáis solo sobre ellas: resúmenes, guías de estudio, mapas mentales y hasta un pódcast generado.</p>
+    </div>
+    <div class="card">
+      <h3>Navegadores con agente</h3>
+      <p>ChatGPT Atlas, Gemini en Chrome, Perplexity Comet… El navegador ya no solo muestra páginas: <strong>hace cosas por vosotros</strong> (buscar, comparar, rellenar, reservar).</p>
+    </div>
+  </div>
+  <p class="quote">Y llegó un día en el que el mundo cambió: la IA dejó de solo responder y empezó a actuar.</p>
+</section>
+
+<!-- ============ 05 TALLER ============ -->
+<div class="bloque-head" id="b5"></div>
+<section class="slide divider">
+  <div class="num">05</div>
+  <h2>Taller práctico</h2>
+  <p>Consultoría de IA para Jerez «pet-friendly».</p>
+</section>
+
+<section class="slide">
+  <span class="tag">Taller · Planteamiento</span>
+  <h2>Consultoría de IA para Jerez «pet-friendly»</h2>
+  <p class="lead">Simulamos una consultoría de marketing 360°. Usaremos IA para responder las cuatro preguntas que nos haría un comercio local de Jerez (una librería, una cafetería, una tienda de ropa):</p>
+  <ol class="steps">
+    <li><strong>¿Es una moda o una oportunidad real?</strong> Justificación de la estrategia · <em>Consensus / Elicit</em></li>
+    <li><strong>¿Hay demanda real en Jerez?</strong> Análisis de la demanda local · <em>Google Trends</em></li>
+    <li><strong>Si lo hago, ¿qué espera el cliente de Jerez?</strong> Voz del cliente · <em>Google Maps + LLM</em></li>
+    <li><strong>Dame ideas concretas que funcionen.</strong> Generación de estrategia · <em>LLM</em></li>
+  </ol>
+</section>
+
+<section class="slide">
+  <span class="tag">Taller · Paso 1 · El «porqué»</span>
+  <h2>Justificar la estrategia</h2>
+  <p><strong>Herramienta «científica»:</strong> <a href="https://consensus.app" target="_blank" rel="noopener">Consensus</a> (o <a href="https://elicit.com" target="_blank" rel="noopener">Elicit</a>).</p>
+  <p><strong>El problema:</strong> el dueño nos dice: «¿Para qué voy a complicarme? ¿De verdad la gente gasta más en un sitio por ser pet-friendly?».</p>
+  <p><strong>La acción:</strong> no podemos preguntar por «Jerez» (es demasiado local para los estudios académicos). Preguntamos por el impacto económico de la estrategia. En inglés funciona mejor:</p>
+  <pre class="prompt"><button class="btn copy" type="button">Copiar</button>What is the economic impact of "pet-friendly" policies on small businesses, retail, or hospitality?</pre>
+  <p class="note" style="margin-top:0;border:0;padding:0">(¿Cuál es el impacto económico de las políticas pet-friendly en pymes, comercio y hostelería?)</p>
+  <p><strong>Qué esperamos encontrar:</strong> una síntesis de artículos de economía y marketing; por ejemplo, que los dueños de mascotas perciben estas marcas como más éticas y les son más fieles, o que la «economía de las mascotas» se asocia a más gasto en ocio.</p>
+  <div class="card"><h3>Antes de dar nada por bueno</h3><p style="margin:0">Abrid al menos dos de los estudios citados y comprobad que dicen eso, de qué país son y de qué año. Si se confirma, ya no es una «moda»: es una estrategia de fidelización con respaldo académico.</p></div>
+</section>
+
+<section class="slide">
+  <span class="tag">Taller · Paso 2 · El «dónde» y el «cuándo»</span>
+  <h2>Analizar la demanda local</h2>
+  <p><strong>Herramienta:</strong> <a href="https://trends.google.es" target="_blank" rel="noopener">Google Trends</a>.</p>
+  <p><strong>El problema:</strong> «Vale, funciona en otros sitios, pero… ¿y aquí? ¿En Andalucía? ¿En Jerez?».</p>
+  <ol class="steps">
+    <li>Abrid Google Trends. Filtro: <strong>España, últimos 5 años</strong>.</li>
+    <li>Comparad <strong>«pet friendly»</strong> (término en inglés) con <strong>«aceptan mascotas»</strong> o <strong>«admiten perros»</strong> (términos locales).</li>
+    <li>Mirad el mapa de «Interés por subregión». ¿Destaca Andalucía?</li>
+    <li>Cambiad el filtro a <strong>Andalucía</strong> y mirad «Consultas relacionadas». ¿Aparece «Jerez», «Cádiz» o «playa perros Cádiz»?</li>
+  </ol>
+  <p><strong>Qué sacamos:</strong> si la tendencia crece (una ola que aprovechar) o está plana, y <strong>cómo busca la gente</strong> («hotel pet friendly Jerez», «bar que acepte perros»): las palabras clave exactas para el SEO local.</p>
+  <p class="note">Si una ciudad no aparece, suele ser porque el volumen de búsquedas es bajo, no porque no haya interés. Es un dato, no una sentencia.</p>
+</section>
+
+<section class="slide">
+  <span class="tag">Taller · Paso 3 · El «qué» (1/2)</span>
+  <h2>Escuchar al cliente de Jerez</h2>
+  <p class="lead">El ejercicio más potente: un <em>focus group</em> instantáneo.</p>
+  <p><strong>Herramientas:</strong> Google Maps (para obtener los datos) + un LLM (ChatGPT, Gemini, Claude…) para analizarlos.</p>
+  <p><strong>El problema:</strong> «Perfecto. Pero si pongo un cuenco de agua, ¿es suficiente? ¿Qué valora de verdad quien viene con su perro?».</p>
+  <h3>Fase 1 · Datos</h3>
+  <ol class="steps">
+    <li>Buscad en Google Maps «restaurante pet friendly Jerez» (o «cafetería»).</li>
+    <li>Entrad en los dos o tres primeros resultados con muchas reseñas.</li>
+    <li>Buscad en las reseñas «perro», «mascota» o «pet friendly».</li>
+    <li>Copiad 15–20 reseñas reales en un bloc de notas. <strong>Quitad los nombres de quienes las escriben</strong>: no los necesitamos y son datos personales.</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <span class="tag">Taller · Paso 3 · El «qué» (2/2)</span>
+  <h2>Fase 2 · Análisis con IA</h2>
+  <p>Abrid el LLM y usad este prompt:</p>
+  <pre class="prompt"><button class="btn copy" type="button">Copiar</button>Actúa como un analista de investigación de mercados experto en hostelería y comercio local.
+
+He recopilado [NÚMERO] reseñas reales de clientes que han visitado comercios "pet-friendly" en Jerez de la Frontera.
+
+Tu tarea es:
+1. Analizar el sentimiento general de la experiencia "pet-friendly".
+2. Identificar los 3 principales "puntos de dolor" (pain points) que mencionan los clientes, con una cita textual de ejemplo para cada uno.
+3. Identificar las 3 principales "fortalezas" (delights) que más valoran y repiten, con una cita textual de ejemplo para cada una.
+4. Darme una recomendación accionable en una frase basada en estos hallazgos.
+
+Usa solo la información de las reseñas. Si algo no aparece en ellas, dilo; no lo supongas.
+
+Aquí están las reseñas:
+[Pegar las 15-20 reseñas copiadas de Google Maps]</pre>
+  <p class="note">Pedir citas textuales sirve para comprobar que la IA no se inventa los hallazgos: buscad cada cita en vuestras reseñas.</p>
+</section>
+
+<section class="slide">
+  <span class="tag">Taller · Paso 4 · El «cómo» (1/2)</span>
+  <h2>Generar la estrategIA</h2>
+  <p><strong>Herramienta:</strong> un LLM (ChatGPT, Gemini, Claude…).</p>
+  <p><strong>El problema:</strong> «¡Genial! Tengo la justificación académica, los datos de demanda y lo que dicen las reseñas. Ahora dame ideas de marketing concretas y baratas».</p>
+  <p>Sustituid las tres claves por <strong>lo que hayáis encontrado vosotros</strong> en los pasos 1–3:</p>
+  <pre class="prompt"><button class="btn copy" type="button">Copiar</button>Actúa como consultor de marketing para una [pyme, p. ej.: librería-café] en el centro de Jerez.
+
+Nuestra investigación nos ha dado 3 claves:
+1. (De Consensus): ser "pet-friendly" aumenta la fidelidad del cliente.
+2. (De Google Trends): la búsqueda de "pet friendly Jerez" está creciendo.
+3. (De las reseñas): los clientes valoran que "les traigan agua sin pedirla" y "poder estar dentro" más que cualquier otra cosa.
+
+Basándote SOLO en estos 3 hallazgos, propón 5 estrategias de marketing de bajo coste y alto impacto para aplicar este mes. Para cada una indica qué hallazgo la justifica y cómo mediríamos si funciona.</pre>
+</section>
+
+<section class="slide">
+  <span class="tag">Taller · Paso 4 · El «cómo» (2/2)</span>
+  <h2>Un ejemplo de resultado</h2>
+  <ol class="steps">
+    <li><strong>Kit de bienvenida canino:</strong> cartel en la puerta «Somos pet-friendly (de verdad)» y el personal sale con un cuenco de agua fresca en cuanto ve un perro.</li>
+    <li><strong>Sello «Aquí sí puedes entrar»:</strong> pegatina en la puerta basada en lo que piden las reseñas (si la normativa municipal y el tipo de local lo permiten).</li>
+    <li><strong>«Tarde de café y patas»:</strong> un sábado al mes, descuento para quien venga con su perro.</li>
+    <li><strong>Contenido en redes:</strong> un «salón de la fama» en Instagram con los clientes perrunos que visitan el local (con permiso de sus dueños).</li>
+    <li><strong>Alianza local:</strong> descuentos cruzados con veterinarios o tiendas de mascotas de Jerez.</li>
+  </ol>
+  <div class="card"><h3>Vuestro papel</h3><p style="margin:0">La IA propone; vosotros decidís. ¿Cuál de las cinco es viable para <em>vuestro</em> comercio? ¿Cuál descartaríais y por qué? Esa respuesta es la que vale en una consultoría.</p></div>
+</section>
+
+<section class="slide">
+  <h2>Para llevar</h2>
+  <div class="grid-2">
+    <ul>
+      <li>La IA no es solo ChatGPT: lleva décadas en el marketing (segmentar, predecir, optimizar).</li>
+      <li>Aprende de tres formas: <strong>supervisada</strong>, <strong>no supervisada</strong> y <strong>por refuerzo</strong>.</li>
+      <li>La IA generativa crea; la agéntica, además, <strong>actúa</strong>.</li>
+    </ul>
+    <ul>
+      <li>Los riesgos son reales: privacidad, sesgo, manipulación y alucinaciones.</li>
+      <li>En Europa hay ley: RGPD, Reglamento de IA y DSA.</li>
+      <li><strong>Vosotros sois los responsables</strong> de lo que publica vuestra IA: revisad, verificad y editad.</li>
+    </ul>
+  </div>
+  <p class="lead" style="margin-top:1em">¿Preguntas? · <a href="mailto:josemiguel.mota@uca.es">josemiguel.mota@uca.es</a></p>
+</section>
+
+</main>
+
+<div class="progress" id="progress"></div>
+<div class="pctrl" aria-label="Controles de la presentación">
+  <button type="button" id="prevBtn" aria-label="Diapositiva anterior">←</button>
+  <span id="counter">1 / 1</span>
+  <button type="button" id="nextBtn" aria-label="Diapositiva siguiente">→</button>
+  <button type="button" id="exitBtn" aria-label="Salir de la presentación">✕</button>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Introducción a la IA</strong> · José Miguel Mota Macías · Máster Universitario en Dirección de Marketing Digital y Social · Facultad de Ciencias Sociales y de la Comunicación · Universidad de Cádiz.</p>
+    <p>Materiales del seminario «IA orientada a la investigación»: <a href="https://github.com/josemiguelmota/Guia-M-ster-marketing/blob/main/presentacion-sesion.md">presentación</a> · <a href="https://github.com/josemiguelmota/Guia-M-ster-marketing/blob/main/actividad-alumnos.md">actividad para los alumnos</a>.</p>
+    <p>Atajos en modo presentación: <kbd>→</kbd>/<kbd>espacio</kbd> avanzar · <kbd>←</kbd> retroceder · <kbd>Inicio</kbd>/<kbd>Fin</kbd> · <kbd>F</kbd> pantalla completa · <kbd>Esc</kbd> salir. Revisado en noviembre de 2026.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var t=localStorage.getItem('theme'); if(t) root.setAttribute('data-theme',t);}catch(e){}
+  document.getElementById('themeBtn').addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    var next=dark?'light':'dark'; root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+
+  // Portada solo en modo presentación
+  var cover=document.querySelector('[data-only-present]');
+  cover.style.display='none';
+
+  var slides=[].slice.call(document.querySelectorAll('main .slide'));
+  var i=0, body=document.body, bar=document.getElementById('progress'), counter=document.getElementById('counter');
+
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.classList.toggle('active',k===i);});
+    slides[i].scrollTop=0;
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    counter.textContent=(i+1)+' / '+slides.length;
+    history.replaceState(null,'','#d'+(i+1));
+  }
+  function start(n){
+    cover.style.display='';
+    body.classList.add('present');
+    show(n||0);
+  }
+  function stop(){
+    var cur=slides[i];
+    body.classList.remove('present');
+    slides.forEach(function(s){s.classList.remove('active');});
+    cover.style.display='none';
+    history.replaceState(null,'',location.pathname);
+    if(cur!==cover) cur.scrollIntoView({block:'start'});
+    if(document.fullscreenElement) document.exitFullscreen();
+  }
+  function firstVisible(){
+    for(var k=1;k<slides.length;k++){ if(slides[k].getBoundingClientRect().bottom>80) return k; }
+    return 0;
+  }
+  document.getElementById('presentBtn').addEventListener('click',function(){start(window.scrollY<200?0:firstVisible());});
+  document.querySelectorAll('[data-present]').forEach(function(b){b.addEventListener('click',function(){start(0);});});
+  document.getElementById('prevBtn').addEventListener('click',function(){show(i-1);});
+  document.getElementById('nextBtn').addEventListener('click',function(){show(i+1);});
+  document.getElementById('exitBtn').addEventListener('click',stop);
+
+  document.addEventListener('keydown',function(e){
+    if(!body.classList.contains('present')) return;
+    var k=e.key;
+    if(k==='ArrowRight'||k==='PageDown'||k===' '){e.preventDefault();show(i+1);}
+    else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();show(i-1);}
+    else if(k==='Home'){show(0);} else if(k==='End'){show(slides.length-1);}
+    else if(k==='Escape'){ if(!document.fullscreenElement) stop(); }
+    else if(k==='f'||k==='F'){ if(document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen(); }
+  });
+  // Clic en la mitad derecha/izquierda para avanzar en modo presentación (sin interferir con enlaces o botones)
+  document.querySelector('main').addEventListener('click',function(e){
+    if(!body.classList.contains('present')||e.target.closest('a,button,pre,summary')) return;
+    show(e.clientX>window.innerWidth/3?i+1:i-1);
+  });
+
+  var m=location.hash.match(/^#d(\d+)$/); if(m) start(parseInt(m[1],10)-1);
+
+  // Botones de copiar
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var txt=btn.parentNode.textContent.replace(btn.textContent,'').trim();
+      (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(function(){btn.textContent='¡Copiado!';setTimeout(function(){btn.textContent='Copiar';},1500);},function(){btn.textContent='Selecciona y copia';});
+    });
+  });
+
+  // Resaltar sección activa en la barra
+  var links=[].slice.call(document.querySelectorAll('.topbar nav a'));
+  var heads=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  addEventListener('scroll',function(){
+    var cur=-1; heads.forEach(function(h,k){ if(h.getBoundingClientRect().top<120) cur=k; });
+    links.forEach(function(a,k){a.classList.toggle('on',k===cur);});
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
